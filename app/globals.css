@@ -1,0 +1,19 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+@import "tailwindcss";
+
+body {
+  font-family: 'Satoshi', sans-serif;
+  /* Esconde o cursor padrão para usarmos o nosso */
+  cursor: none; 
+}
+
+/* Garante que links e botões também escondam o cursor padrão */
+a, button {
+  cursor: none;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
