@@ -5,8 +5,8 @@ import Header from "../components/Header"; // Importamos o Header
 import Footer from "../components/Footer"; // Importamos o Footer
 
 export const metadata: Metadata = {
-  title: "Bento Rangel | Desenvolvedor Front-end",
-  description: "Portfólio de Bento Rangel, focado em React, Next.js e Tailwind CSS.",
+  title: "Bento Rangel | Engenheiro de Software",
+  description: "Portfólio de Bento Rangel, focado em Engenharia de Software e análise de dados",
 };
 
 export default function RootLayout({
