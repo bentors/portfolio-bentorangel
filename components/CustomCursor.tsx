@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 }); // Começa fora da tela
 
   useEffect(() => {
     const updateMousePosition = (e: MouseEvent) => {
@@ -20,16 +20,16 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="hidden md:block pointer-events-none fixed left-0 top-0 z-50 h-8 w-8 rounded-full border border-purple-500/50 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-sm"
+      className="pointer-events-none fixed left-0 top-0 z-[999] hidden h-8 w-8 rounded-full border border-purple-500/50 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-sm md:block"
       animate={{
         x: mousePosition.x - 16,
         y: mousePosition.y - 16,
       }}
       transition={{
         type: "spring",
-        stiffness: 150, // Velocidade de resposta
-        damping: 15,    // Suavidade da parada
-        mass: 0.1,      // Peso do elemento
+        stiffness: 600, // Aumentado de 150 para 800 (muito mais rápido)
+        damping: 35,    // Freia mais rápido, evitando tremedeira
+        mass: 0.05,     // Deixamos a bolinha mais "leve"
       }}
     />
   );

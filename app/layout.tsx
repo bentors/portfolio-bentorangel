@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="scroll-smooth">
-      <body className="bg-zinc-950 text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+      <body className="overflow-x-hidden bg-zinc-950 text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
         <CustomCursor />
         <Header />
         {children}

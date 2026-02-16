@@ -1,49 +1,55 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { Github, Linkedin, Mail } from "lucide-react";
 
-const navLinks = [
-  { name: "Sobre", href: "#sobre" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projetos", href: "#projetos" },
-  { name: "Contato", href: "#contato" },
-];
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
 
-export default function Header() {
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className="fixed top-0 z-40 flex w-full justify-center border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md"
-    >
-      <div className="flex h-16 w-full max-w-5xl items-center justify-between px-6">
-        {/* Logo / Nome */}
-        <a href="#" className="text-xl font-black tracking-tighter text-zinc-100">
-          BR<span className="text-purple-500">.</span>
-        </a>
+    <footer className="border-t border-zinc-900 bg-[#050505] py-12 px-6">
+      <div className="mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between gap-8">
+        
+        {/* Lado Esquerdo: Logo e Copyright */}
+        <div className="flex flex-col items-center md:items-start gap-2">
+          <Link href="/" className="text-xl font-black tracking-tighter text-zinc-100">
+            BR<span className="text-purple-500">.</span>
+          </Link>
+          <p className="text-sm text-zinc-500 font-medium">
+            © {currentYear} • Desenvolvido por Bento Rangel
+          </p>
+        </div>
 
-        {/* Links de Navegação */}
-        <nav className="hidden items-center gap-8 sm:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-zinc-400 transition-colors hover:text-purple-400"
-            >
-              {link.name}
-            </a>
-          ))}
-        </nav>
+        {/* Lado Direito: Ícones de Contato */}
+        <div className="flex items-center gap-6">
+          <a 
+            href="https://github.com/bentors" 
+            target="_blank" 
+            rel="noreferrer"
+            className="text-zinc-500 transition-colors hover:text-white"
+            aria-label="GitHub"
+          >
+            <Github size={20} />
+          </a>
+          <a 
+            href="https://linkedin.com/in/bento-rangel-1854432a6" 
+            target="_blank" 
+            rel="noreferrer"
+            className="text-zinc-500 transition-colors hover:text-[#0A66C2]"
+            aria-label="LinkedIn"
+          >
+            <Linkedin size={20} />
+          </a>
+          <a 
+            href="mailto:bento.rangel05@gmail.com" 
+            className="text-zinc-500 transition-colors hover:text-purple-400"
+            aria-label="Email"
+          >
+            <Mail size={20} />
+          </a>
+        </div>
 
-        {/* Botão de Contato direto no Header */}
-        <a
-          href="#contato"
-          className="hidden rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm font-semibold text-zinc-300 transition-all hover:border-zinc-700 hover:text-white sm:block"
-        >
-          Falar Comigo
-        </a>
       </div>
-    </motion.header>
+    </footer>
   );
 }

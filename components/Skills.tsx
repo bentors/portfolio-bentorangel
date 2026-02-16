@@ -1,66 +1,225 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { 
+  Database, 
+  Coffee, 
+  Leaf, 
+  Box, 
+  Table2, 
+  FileSpreadsheet, 
+  BarChart3, 
+  Workflow, 
+  LineChart,
+  Zap
+} from "lucide-react";
 
-// Organizando as skills em categorias para facilitar a manutenção
 const skillCategories = [
   {
-    title: "Dados & Back-end",
-    skills: ["Python", "SQL", "Pandas", "Automação (ETL)", "Power BI / Dashboards"],
+    title: "1. Back-end & Arquitetura",
+    items: [
+      {
+        name: "Java",
+        color: "hover:border-[#E76F00]/50 hover:bg-[#E76F00]/10 text-[#E76F00]",
+        icon: <Coffee size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Spring Boot",
+        color: "hover:border-[#6DB33F]/50 hover:bg-[#6DB33F]/10 text-[#6DB33F]",
+        icon: <Leaf size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "PostgreSQL",
+        color: "hover:border-[#336791]/50 hover:bg-[#336791]/10 text-[#336791]",
+        icon: <Database size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Docker",
+        color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
+        icon: <Box size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Git",
+        color: "hover:border-[#F05032]/50 hover:bg-[#F05032]/10 text-[#F05032]",
+        icon: (
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.775 2.775c.64-.219 1.383-.075 1.899.442.736.736.736 1.926 0 2.662-.736.736-1.926.736-2.662 0-.51-.51-.652-1.242-.44-1.882l-2.748-2.748v5.92c.218.21.358.503.358.828 0 .641-.52 1.161-1.161 1.161-.641 0-1.161-.52-1.161-1.161 0-.323.138-.614.353-.824V9.695c-.215-.21-.353-.502-.353-.823 0-.154.032-.301.087-.437L6.084 5.676 1.144 10.616c-.603.604-.603 1.583 0 2.189l10.479 10.478c.604.604 1.582.604 2.188 0l9.735-9.735c.603-.604.603-1.582 0-2.188z" />
+          </svg>
+        ),
+      },
+    ],
   },
   {
-    title: "Front-end & UI",
-    skills: ["React", "Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Vite"],
+    title: "2. Análise de Dados & B.I.",
+    items: [
+      {
+        name: "Python",
+        color: "hover:border-[#FFD43B]/50 hover:bg-[#FFD43B]/10 text-[#FFD43B]",
+        icon: (
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M12.031 0C5.467 0 5.467 5.467 5.467 5.467h6.634v1.658H4.634C.123 7.125.123 13.759.123 13.759h2.487v-2.487c0-2.825 2.29-2.81 2.29-2.81h6.635s2.487.037 2.487-2.487V2.487S14.022 0 12.031 0zm-2.487 1.658c.687 0 1.243.556 1.243 1.244 0 .687-.556 1.243-1.243 1.243-.687 0-1.244-.556-1.244-1.243 0-.688.557-1.244 1.244-1.244zM11.969 24c6.564 0 6.564-5.467 6.564-5.467h-6.634v-1.658h7.467c4.51 0 4.51-6.634 4.51-6.634h-2.487v2.487c0 2.825-2.29 2.81-2.29 2.81H5.455s-2.487-.037-2.487 2.487v3.487S5.978 24 11.969 24zm2.487-1.658c-.687 0-1.243-.556-1.243-1.244 0-.687.556-1.243 1.243-1.243.687 0 1.244.556 1.244 1.243 0 .688-.557 1.244-1.244 1.244z" />
+          </svg>
+        ),
+      },
+      {
+        name: "Pandas",
+        color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]", // Tons de azul/roxo do Pandas
+        icon: <Table2 size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Matplotlib",
+        color: "hover:border-[#11557C]/80 hover:bg-[#11557C]/30 text-[#11557C]",
+        icon: <LineChart size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Power BI",
+        color: "hover:border-[#F2C811]/50 hover:bg-[#F2C811]/10 text-[#F2C811]",
+        icon: <BarChart3 size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Excel",
+        color: "hover:border-[#217346]/50 hover:bg-[#217346]/10 text-[#217346]",
+        icon: <FileSpreadsheet size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Power Automate",
+        color: "hover:border-[#0078D4]/50 hover:bg-[#0078D4]/10 text-[#0078D4]",
+        icon: <Workflow size={32} strokeWidth={1.5} />,
+      },
+    ],
   },
   {
-    title: "Ferramentas & Outros",
-    skills: ["Git & GitHub", "Figma", "Lighthouse (SEO/Performance)", "Cloudinary"],
+    title: "3. Front-end",
+    items: [
+      {
+        name: "React",
+        color: "hover:border-[#61DAFB]/50 hover:bg-[#61DAFB]/10 text-[#61DAFB]",
+        icon: (
+          <svg viewBox="-11.5 -10.23174 23 20.46348" width="32" height="32" fill="currentColor">
+            <circle cx="0" cy="0" r="2.05" />
+            <g stroke="currentColor" strokeWidth="1" fill="none">
+              <ellipse rx="11" ry="4.2" />
+              <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+              <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+            </g>
+          </svg>
+        ),
+      },
+      {
+        name: "Vite",
+        color: "hover:border-[#646CFF]/50 hover:bg-[#646CFF]/10 text-[#646CFF]",
+        icon: <Zap size={32} strokeWidth={1.5} fill="currentColor" className="fill-transparent" />,
+      },
+      {
+        name: "Tailwind CSS",
+        color: "hover:border-[#38B2AC]/50 hover:bg-[#38B2AC]/10 text-[#38B2AC]",
+        icon: (
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
+          </svg>
+        ),
+      },
+      {
+        name: "Framer Motion",
+        color: "hover:border-[#E902B5]/50 hover:bg-[#E902B5]/10 text-[#E902B5]",
+        icon: (
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
+          </svg>
+        ),
+      },
+    ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="flex min-h-[70vh] flex-col items-center justify-center border-t border-zinc-800 bg-zinc-900/10 py-24">
-      <div className="mx-auto w-full max-w-5xl px-6">
+    <section id="skills" className="relative bg-[#050505] py-24 sm:py-32">
+      {/* Luz de fundo decorativa */}
+      <div className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 rounded-full bg-purple-600/5 blur-[120px] pointer-events-none" />
+
+      <div className="mx-auto max-w-5xl px-6 relative z-10">
         
+        {/* Cabeçalho da Seção */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="mb-16 text-center"
+          className="mb-16 text-center md:text-left"
         >
-          <h2 className="text-3xl font-black text-zinc-100 sm:text-4xl">
-            Meu <span className="text-purple-500">Ecossistema.</span>
+          <h2 className="text-3xl font-black text-white sm:text-4xl">
+            Minha <span className="text-purple-500">Stack.</span>
           </h2>
-          <p className="mt-4 text-zinc-400">Tecnologias e ferramentas que uso no dia a dia.</p>
+          <p className="mt-4 text-lg text-zinc-400">
+            A fundação tecnológica que uso para construir motores robustos, analisar dados e criar interfaces ágeis.
+          </p>
         </motion.div>
 
-        <div className="grid gap-8 md:grid-cols-3">
-          {skillCategories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="rounded-2xl border border-zinc-800/50 bg-zinc-900/30 p-8"
-            >
-              <h3 className="mb-6 text-xl font-bold text-zinc-200">{category.title}</h3>
-              <ul className="flex flex-col gap-3">
-                {category.skills.map((skill) => (
-                  <li 
-                    key={skill} 
-                    className="flex items-center gap-3 text-zinc-400 transition-colors hover:text-purple-400"
+        {/* Mapeando as Categorias */}
+        <div className="space-y-16">
+          {skillCategories.map((category, idx) => (
+            <div key={idx}>
+              <motion.h3
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="mb-8 text-xl font-bold text-zinc-300 border-b border-zinc-800 pb-2"
+              >
+                {category.title}
+              </motion.h3>
+
+              {/* Grid de Cartões */}
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                {category.items.map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`group flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800/50 bg-zinc-900/20 p-6 transition-all duration-300 ${skill.color}`}
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-purple-500/50"></span>
-                    {skill}
-                  </li>
+                    <div className="text-zinc-500 transition-all duration-300 group-hover:-translate-y-1 group-hover:text-inherit">
+                      {skill.icon}
+                    </div>
+                    <span className="text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:text-inherit text-center">
+                      {skill.name}
+                    </span>
+                  </motion.div>
                 ))}
-              </ul>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </div>
+
+        {/* Botão para a Página de Qualificações / Sobre */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, delay: 0.2 }}
+          className="mt-16 flex justify-center"
+        >
+          <a 
+            href="/sobre" 
+            className="group flex items-center gap-3 rounded-full border border-zinc-800 bg-zinc-900/50 px-8 py-4 font-semibold text-zinc-300 transition-all hover:border-purple-500/50 hover:bg-purple-600 hover:text-white shadow-sm hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] backdrop-blur-sm"
+          >
+            Ver diplomas e jornada detalhada
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              width="20" 
+              height="20" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              className="transition-transform group-hover:translate-x-1"
+            >
+              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+            </svg>
+          </a>
+        </motion.div>
 
       </div>
     </section>
