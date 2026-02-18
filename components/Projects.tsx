@@ -9,8 +9,8 @@ const projects = [
     category: "Engenharia de Software",
     description: "Plataforma e-commerce de vestuário com foco em performance extrema. Otimização de Lighthouse para 95+ e interface interativa com Framer Motion.",
     tech: ["React", "Tailwind", "Framer Motion"],
-    github: "https://github.com/bentors/site-streetstars", // Substitua pelo link real
-    link: "https://streetstars.vercel.app/", // Substitua pelo link real
+    github: "https://github.com/bentors/site-streetstars",
+    link: "https://streetstars.vercel.app/",
     image: "https://res.cloudinary.com/dmsvju9ca/image/upload/v1769730868/logo_fundopreto_y87j0h.png", 
   },
   {

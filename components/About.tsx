@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Database, Server, User } from "lucide-react"; // Tirei o Terminal daqui
+import { Database, Server, User } from "lucide-react";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -49,19 +50,22 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.1 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.1 }}
             className="group relative col-span-1 min-h-[300px] overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/50 p-1 lg:col-span-1"
           >
             {/* Efeito de brilho roxo ao passar o mouse */}
-            <div className="absolute inset-0 z-10 bg-gradient-to-br from-purple-500/20 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none group-hover:opacity-100" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-br from-black-500/20 to-transparent opacity-0 transition-opacity duration-500 pointer-events-none group-hover:opacity-100" />
             
             {/* Div da Imagem carregando o seu arquivo */}
             <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-2xl bg-[#0a0a0a] relative">
-               <img 
-                 src="/fotopessoalBento.jpeg" 
-                 alt="Foto do Bento Rangel" 
-                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" 
-               />
+                <Image 
+                    src="/fotopessoalBento.jpeg" 
+                    alt="Foto do Bento Rangel" 
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    priority
+                />
             </div>
           </motion.div>
 
@@ -69,7 +73,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.2 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.2 }}
             className="col-span-1 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-8 transition-colors hover:border-purple-500/30 hover:bg-zinc-900/40"
           >
             <Server className="mb-4 text-purple-400" size={28} />
@@ -83,7 +88,8 @@ export default function About() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.3 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.3 }}
             className="col-span-1 rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-8 transition-colors hover:border-purple-500/30 hover:bg-zinc-900/40 md:col-span-1 lg:col-span-2"
           >
             <Database className="mb-4 text-purple-400" size={28} />
@@ -99,7 +105,8 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, delay: 0.4 }}
+          viewport={{ once: true }} 
+          transition={{ delay: 0.4 }}
           className="mt-12 flex justify-center md:justify-end"
         >
           <a 

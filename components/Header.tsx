@@ -15,7 +15,7 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname(); // Descobre em qual página estamos agora
 
-  // A MÁGICA DO SCROLL INTELIGENTE
+  // SCROLL INTELIGENTE
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsOpen(false); // Fecha o menu mobile se estiver aberto
 

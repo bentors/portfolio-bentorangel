@@ -63,7 +63,7 @@ const skillCategories = [
       },
       {
         name: "Pandas",
-        color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]", // Tons de azul/roxo do Pandas
+        color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]",
         icon: <Table2 size={32} strokeWidth={1.5} />,
       },
       {
@@ -196,7 +196,8 @@ export default function Skills() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, delay: 0.2 }}
+          viewport={{ once: true }} 
+          transition={{ delay: 0.2 }}
           className="mt-16 flex justify-center"
         >
           <a 

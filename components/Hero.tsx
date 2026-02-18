@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
 
-// 1. GERAÇÃO ESTRUTURADA DE PARTÍCULAS (Leve e distribuída)
+// GERAÇÃO ESTRUTURADA DE PARTÍCULAS (Leve e distribuída)
 const particleData = Array.from({ length: 40 }).map((_, i) => {
   let size = 2;
   let glow = "shadow-[0_0_8px_rgba(168,85,247,0.4)]";
@@ -29,7 +29,7 @@ const particleData = Array.from({ length: 40 }).map((_, i) => {
   };
 });
 
-// --- COMPONENTE DA PARTÍCULA INDIVIDUAL (Sem matemática de mouse) ---
+// --- COMPONENTE DA PARTÍCULA INDIVIDUAL ---
 function Particle({ p }: { p: any }) {
   return (
     <motion.div

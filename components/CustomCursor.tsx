@@ -27,9 +27,9 @@ export default function CustomCursor() {
       }}
       transition={{
         type: "spring",
-        stiffness: 600, // Aumentado de 150 para 800 (muito mais rápido)
+        stiffness: 800, // Velocidade
         damping: 35,    // Freia mais rápido, evitando tremedeira
-        mass: 0.05,     // Deixamos a bolinha mais "leve"
+        mass: 0.05,     // Bolinha mais "leve"
       }}
     />
   );

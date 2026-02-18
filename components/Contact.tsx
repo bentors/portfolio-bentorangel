@@ -46,7 +46,7 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        {/* Ajustamos a proporção para 12 colunas: 5 para info e 7 para o formulário */}
+        {/* 12 colunas: 5 para info e 7 para o formulário */}
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8 items-start">
                 
         {/* COLUNA ESQUERDA: Informações e Redes (Ocupa 5 de 12 colunas) */}
@@ -61,7 +61,6 @@ export default function Contact() {
                 <MessageSquare className="text-purple-400" />
                 Me mande um "Olá!"
             </h3>
-            {/* Adicionei um parágrafo curto para ajudar no preenchimento visual e alinhar as alturas */}
             <p className="text-zinc-400 font-medium leading-relaxed max-w-md">
                 Estou disponível para novos projetos e parcerias. Vamos transformar suas ideias em realidade técnica?
             </p>
@@ -112,7 +111,8 @@ export default function Contact() {
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, delay: 0.2 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.2 }}
             className="lg:col-span-7"
         >
             <form onSubmit={handleSubmit} className="flex flex-col gap-5 rounded-3xl border border-zinc-800/50 bg-zinc-900/30 p-8 shadow-xl backdrop-blur-sm">
