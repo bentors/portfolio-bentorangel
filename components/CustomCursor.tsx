@@ -20,7 +20,7 @@ export default function CustomCursor() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed left-0 top-0 z-[999] hidden h-8 w-8 rounded-full border border-purple-500/50 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-sm md:block"
+      className="pointer-events-none fixed left-0 top-0 z-[999] hidden h-6 w-6 rounded-full border border-purple-500/50 bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.2)] backdrop-blur-sm md:block"
       animate={{
         x: mousePosition.x - 16,
         y: mousePosition.y - 16,

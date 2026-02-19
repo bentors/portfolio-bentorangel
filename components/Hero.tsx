@@ -1,144 +1,155 @@
 "use client";
 
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { motion , Variants } from "framer-motion";
+import { ArrowDownRight } from "lucide-react";
 
-// GERAÇÃO ESTRUTURADA DE PARTÍCULAS (Leve e distribuída)
-const particleData = Array.from({ length: 40 }).map((_, i) => {
-  let size = 2;
-  let glow = "shadow-[0_0_8px_rgba(168,85,247,0.4)]";
+// Variantes para a animação em cascata (Stagger)
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+};
 
-  if (i % 6 === 0) {
-    size = 6;
-    glow = "shadow-[0_0_15px_rgba(168,85,247,1)]";
-  } else if (i % 3 === 0) {
-    size = 4;
-    glow = "shadow-[0_0_10px_rgba(168,85,247,0.7)]";
-  }
+const textVariants: Variants = {
+  hidden: { y: "100%", opacity: 0, rotate: 2 },
+  show: { 
+    y: 0, 
+    opacity: 1, 
+    rotate: 0,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } 
+  },
+};
 
-  return {
-    id: i,
-    size,
-    glow,
-    baseX: Math.random() * 100,
-    baseY: Math.random() * 100,
-    duration: Math.random() * 15 + 15,
-    floatX: Math.random() * 30 - 15, 
-    floatY: -(Math.random() * 50 + 20),
-  };
-});
-
-// --- COMPONENTE DA PARTÍCULA INDIVIDUAL ---
-function Particle({ p }: { p: any }) {
-  return (
-    <motion.div
-      className="absolute z-0 pointer-events-none"
-      style={{ left: `${p.baseX}%`, top: `${p.baseY}%` }}
-    >
-      <motion.div
-        className={`rounded-full bg-purple-400/80 ${p.glow}`}
-        style={{ width: p.size, height: p.size }}
-        animate={{
-          x: [0, p.floatX, 0],
-          y: [0, p.floatY, 0],
-          opacity: [0.3, 1, 0.3],
-        }}
-        transition={{
-          duration: p.duration,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
-      />
-    </motion.div>
-  );
-}
-
-// --- HERO PRINCIPAL ---
 export default function Hero() {
-  
-  // Força a página a carregar no topo no F5
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-      window.scrollTo(0, 0);
-    }
-  }, []);
-
   return (
-    <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden px-6 pt-16">
-      
-      {/* Fundo "Abismo" e Partículas */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-[#050505]/80 to-[#050505]" />
+    <section 
+      id="hero" 
+      className="relative min-h-screen w-full overflow-hidden pt-32 pb-16 flex flex-col justify-between"
+    >
+
+      {/* CONTEÚDO PRINCIPAL */}
+      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 relative z-10">
         
-        {particleData.map((p) => (
-          <Particle key={p.id} p={p} />
-        ))}
-        
-        <div className="absolute left-1/2 top-1/2 h-[40rem] w-[40rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-600/5 blur-[120px]" />
-      </div>
+        {/* TOPO: Badge de Status */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="mb-8 flex items-center gap-3"
+        >
+          <div className="flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/40 px-4 py-2 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+            </span>
+            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
+              Baseado em São Paulo
+            </span>
+          </div>
+        </motion.div>
 
-      <div className="z-10 w-full max-w-4xl text-center pointer-events-auto">
-        <motion.h1
+        {/* TÍTULOS GIGANTES */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col relative"
+        >
+          {/* Linha 1 */}
+          <div className="overflow-hidden pb-2">
+            <motion.h1 
+              variants={textVariants}
+              className="text-6xl font-black tracking-tighter text-zinc-100 sm:text-8xl md:text-[8rem] lg:text-[10rem] leading-[0.85]"
+            >
+              BENTO
+            </motion.h1>
+          </div>
+          
+          {/* Linha 2 (Com indentação e cor de destaque) */}
+          <div className="overflow-hidden pb-2 flex items-center gap-4 sm:gap-8 md:pl-16">
+            <motion.h1 
+              variants={textVariants}
+              className="text-6xl font-black tracking-tighter text-zinc-100 sm:text-8xl md:text-[8rem] lg:text-[10rem] leading-[0.85]"
+            >
+              RANGEL<span className="text-purple-500">.</span>
+            </motion.h1>
+            
+            {/* O SELO GIRATÓRIO */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.8, type: "spring" }}
+              className="hidden md:flex relative h-24 w-24 sm:h-32 sm:w-32 flex-shrink-0 items-center justify-center"
+            >
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+                className="absolute inset-0"
+              >
+                <svg viewBox="0 0 100 100" className="w-full h-full text-zinc-500 fill-current">
+                  <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
+                  <text className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                    <textPath href="#circlePath" startOffset="0%">
+                      Data • Software Engineer •
+                    </textPath>
+                  </text>
+                </svg>
+              </motion.div>
+              {/* Ícone no centro do selo */}
+              <ArrowDownRight size={24} className="text-purple-500" />
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* SUBTÍTULO E DESCRIÇÃO */}
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mb-4 text-5xl font-black tracking-tight text-white sm:text-7xl"
+          transition={{ duration: 0.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-12 max-w-2xl md:pl-16"
         >
-          Oi, eu sou o Bento{" "}
-          <motion.span
-            className="inline-block origin-bottom-right"
-            animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
-            transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3 }}
-          >
-            👋
-          </motion.span>
-        </motion.h1>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8 text-2xl font-bold sm:text-4xl"
-        >
-          <span className="animate-gradient bg-gradient-to-r from-purple-400 via-purple-200 to-purple-400 bg-[length:200%_auto] bg-clip-text text-transparent">
-            Engenheiro de Software & Analista de Dados
-          </span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="mx-auto mb-12 max-w-2xl text-lg font-medium text-zinc-400 sm:text-xl leading-relaxed"
-        >
-          Entre dashboards, automações e códigos, eu construo pontes entre problemas e soluções. De São Paulo para o mundo, construindo o futuro uma linha de código por vez.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-col items-center justify-center gap-5 sm:flex-row"
-        >
-          <a 
-            href="#sobre" 
-            className="group flex w-full items-center justify-center gap-2 rounded-full bg-purple-600 px-8 py-4 font-bold text-white transition-all hover:bg-purple-500 sm:w-auto shadow-[0_0_20px_rgba(168,85,247,0.4)] hover:shadow-[0_0_30px_rgba(168,85,247,0.6)] hover:-translate-y-1"
-          >
-            <Sparkles size={18} className="text-purple-200" />
-            Conhecer mais
-          </a>
-          <a 
-            href="#contato" 
-            className="w-full rounded-full border-2 border-zinc-800 bg-[#050505]/50 px-8 py-4 font-bold text-zinc-300 transition-all hover:border-purple-500/50 hover:bg-zinc-900 hover:text-white sm:w-auto backdrop-blur-sm hover:-translate-y-1"
-          >
-            Vamos conversar?
-          </a>
+          <h2 className="text-xl md:text-2xl font-bold text-zinc-200 mb-4">
+            Engenheiro de Software & Dados.
+          </h2>
+          <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
+            Graduando na FIAP, unindo arquitetura robusta e análises inteligentes para construir soluções de alto impacto. Foco em <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span> e interfaces fluidas.
+          </p>
         </motion.div>
       </div>
+
+      {/* RODAPÉ DO HERO (Indicador de Scroll e Infos Secundárias) */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="mx-auto flex w-full max-w-7xl items-center justify-between px-8 pb-8 relative z-10"
+      >
+        {/* Lado Esquerdo: Scroll Info */}
+        <div className="hidden md:flex items-center gap-6">
+          <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+            Scroll para explorar
+          </span>
+          <div className="h-[2px] w-16 bg-zinc-800 relative overflow-hidden rounded-full">
+            <motion.div 
+              animate={{ x: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 bg-purple-500"
+            />
+          </div>
+        </div>
+
+        {/* Lado Direito: Links */}
+        <div className="flex w-full md:w-auto justify-between md:justify-end gap-8 text-xs font-bold uppercase tracking-widest text-zinc-500">
+          <a href="#sobre" className="transition-colors hover:text-purple-400">01. Perfil</a>
+          <a href="#projetos" className="transition-colors hover:text-purple-400">02. Cases</a>
+        </div>
+      </motion.div>
+      
     </section>
   );
 }

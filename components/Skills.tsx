@@ -11,12 +11,13 @@ import {
   BarChart3, 
   Workflow, 
   LineChart,
-  Zap
+  Zap,
+  ArrowRight
 } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "1. Back-end & Arquitetura",
+    title: "Back-end & Arquitetura",
     items: [
       {
         name: "Java",
@@ -50,7 +51,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "2. Análise de Dados & B.I.",
+    title: "Análise de Dados & B.I.",
     items: [
       {
         name: "Python",
@@ -89,7 +90,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "3. Front-end",
+    title: "Front-end",
     items: [
       {
         name: "React",
@@ -134,91 +135,88 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative bg-[#050505] py-24 sm:py-32">
-      {/* Luz de fundo decorativa */}
-      <div className="absolute left-1/2 top-0 h-[30rem] w-[40rem] -translate-x-1/2 rounded-full bg-purple-600/5 blur-[120px] pointer-events-none" />
-
-      <div className="mx-auto max-w-5xl px-6 relative z-10">
+    <section id="skills" className="relative py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         
-        {/* Cabeçalho da Seção */}
+        {/* CABEÇALHO DA SEÇÃO */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 text-center md:text-left"
+          className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8"
         >
-          <h2 className="text-3xl font-black text-white sm:text-4xl">
-            Minha <span className="text-purple-500">Stack.</span>
-          </h2>
-          <p className="mt-4 text-lg text-zinc-400">
+          <div>
+            <div className="flex items-center gap-4 mb-4">
+              <div className="h-[1px] w-12 bg-purple-500" />
+              <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Arsenal</span>
+            </div>
+            <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
+              Stack<span className="text-zinc-600">.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-zinc-400 font-medium text-lg">
             A fundação tecnológica que uso para construir motores robustos, analisar dados e criar interfaces ágeis.
           </p>
         </motion.div>
 
-        {/* Mapeando as Categorias */}
-        <div className="space-y-16">
+        {/* LISTA DE CATEGORIAS (Formato Duas Colunas Editoriais) */}
+        <div className="flex flex-col border-b border-zinc-800">
           {skillCategories.map((category, idx) => (
-            <div key={idx}>
-              <motion.h3
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="mb-8 text-xl font-bold text-zinc-300 border-b border-zinc-800 pb-2"
-              >
-                {category.title}
-              </motion.h3>
-
-              {/* Grid de Cartões */}
-              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {category.items.map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`group flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800/50 bg-zinc-900/20 p-6 transition-all duration-300 ${skill.color}`}
-                  >
-                    <div className="text-zinc-500 transition-all duration-300 group-hover:-translate-y-1 group-hover:text-inherit">
-                      {skill.icon}
-                    </div>
-                    <span className="text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:text-inherit text-center">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
+            <div 
+              key={idx}
+              className="flex flex-col lg:flex-row border-t border-zinc-800 py-12 lg:py-16 gap-8 lg:gap-16"
+            >
+              
+              {/* LADO ESQUERDO: Título Gigante da Categoria */}
+              <div className="w-full lg:w-1/3 flex flex-col items-start justify-start">
+                <span className="text-purple-500 font-black text-xl mb-2">0{idx + 1}</span>
+                <h3 className="text-3xl sm:text-4xl font-black text-zinc-100 tracking-tight leading-tight">
+                  {category.title}
+                </h3>
               </div>
+
+              {/* LADO DIREITO: Grid de Cards */}
+              <div className="w-full lg:w-2/3">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                  {category.items.map((skill, index) => (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05 }}
+                      className={`group relative flex flex-col items-center justify-center gap-4 overflow-hidden rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
+                    >
+                      <div className="text-zinc-500 transition-all duration-300 group-hover:scale-110 group-hover:text-inherit">
+                        {skill.icon}
+                      </div>
+                      <span className="text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:text-inherit text-center">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
             </div>
           ))}
         </div>
 
-        {/* Botão para a Página de Qualificações / Sobre */}
+        {/* CTA FINAL DE ALTO IMPACTO */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }} 
-          transition={{ delay: 0.2 }}
-          className="mt-16 flex justify-center"
+          className="mt-16 md:mt-24 flex justify-center md:justify-start lg:justify-end"
         >
           <a 
             href="/sobre" 
-            className="group flex items-center gap-3 rounded-full border border-zinc-800 bg-zinc-900/50 px-8 py-4 font-semibold text-zinc-300 transition-all hover:border-purple-500/50 hover:bg-purple-600 hover:text-white shadow-sm hover:shadow-[0_0_20px_rgba(168,85,247,0.3)] backdrop-blur-sm"
+            className="group flex items-center gap-4 rounded-full border border-purple-500/30 bg-purple-600/10 px-8 py-4 font-bold text-white transition-all hover:border-purple-500 hover:bg-purple-600 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] backdrop-blur-sm"
           >
-            Ver diplomas e jornada detalhada
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="20" 
-              height="20" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              className="transition-transform group-hover:translate-x-1"
-            >
-              <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
-            </svg>
+            <span>Ver diplomas e jornada detalhada</span>
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-purple-600 transition-transform group-hover:translate-x-1">
+              <ArrowRight size={16} strokeWidth={3} />
+            </div>
           </a>
         </motion.div>
 

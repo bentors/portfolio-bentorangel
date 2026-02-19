@@ -1,116 +1,255 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { Mail, Menu, X } from "lucide-react";
 
 const navLinks = [
-  { name: "Sobre", href: "/#sobre" },
-  { name: "Skills", href: "/#skills" },
-  { name: "Projetos", href: "/#projetos" },
-  { name: "Contato", href: "/#contato" },
+  { name: "Sobre", href: "/#sobre", id: "sobre" },
+  { name: "Skills", href: "/#skills", id: "skills" },
+  { name: "Projetos", href: "/#projetos", id: "projetos" },
+  { name: "Contato", href: "/#contato", id: "contato" },
 ];
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Descobre em qual página estamos agora
+  const [isHidden, setIsHidden] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [activeSection, setActiveSection] = useState("");
+  
+  const pathname = usePathname();
+  const { scrollY } = useScroll();
 
-  // SCROLL INTELIGENTE
+  // OBSERVER DA SEÇÃO ATIVA (Scroll Spy)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -60% 0px" } 
+    );
+
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
+
+    const handleScroll = () => {
+      if (window.scrollY < 100) setActiveSection("");
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // CONTROLE DA DINÂMICA DE SCROLL
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    // Verifica se é mobile
+    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+    
+    if (latest <= 60) {
+      setIsAtTop(true);
+      setIsHidden(false); 
+    } else {
+      setIsAtTop(false);
+      
+      // Se rolou para baixo...
+      if (latest > previous && latest > 150) {
+        // No Desktop: esconde o header. No Mobile: mantém visível.
+        if (!isMobile) {
+          setIsHidden(true);
+        }
+        setIsOpen(false); // Sempre fecha o menu ao rolar a página
+      } 
+      // Se rolou para cima...
+      else {
+        setIsHidden(false);
+      }
+    }
+  });
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    setIsOpen(false); // Fecha o menu mobile se estiver aberto
-
-    // Se estamos na Home e o link é uma âncora
+    setIsOpen(false);
     if (pathname === "/" && href.startsWith("/#")) {
-      e.preventDefault(); // Impede a URL de mudar
+      e.preventDefault();
       const targetId = href.replace("/#", "");
       const element = document.getElementById(targetId);
       if (element) {
-        element.scrollIntoView({ behavior: "smooth" }); // Desliza macio
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }
-    // Se o clique for na Logo ("/") e já estivermos na Home
-    else if (pathname === "/" && href === "/") {
+    } else if (pathname === "/" && href === "/") {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-[100] w-full border-b border-zinc-900/50 bg-[#050505]/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
-        
-        {/* LOGO */}
-        <div className="flex w-1/3 justify-start">
-          <Link href="/" onClick={(e) => handleNavClick(e, "/")} className="text-xl font-black tracking-tighter text-zinc-100 transition-colors hover:text-white">
-            BR<span className="text-purple-500">.</span>
-          </Link>
-        </div>
-
-        {/* NAVEGAÇÃO DESKTOP */}
-        <nav className="hidden w-1/3 justify-center gap-8 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium text-zinc-400 transition-colors hover:text-purple-400"
-            >
-              {link.name}
+    <>
+      <motion.div
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: "-150%", opacity: 0 },
+        }}
+        animate={isHidden ? "hidden" : "visible"}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} 
+        className="fixed left-0 right-0 top-6 z-[100] flex justify-center px-4 pointer-events-none"
+      >
+        <motion.div
+          layout
+          className={`relative pointer-events-auto flex items-center justify-between overflow-hidden transition-colors duration-500 ${
+            isAtTop
+              ? "w-full max-w-5xl rounded-none border-b border-transparent bg-transparent py-2 px-2 shadow-none backdrop-blur-none"
+              : "w-full md:w-auto max-w-full gap-6 rounded-full border border-zinc-800/60 bg-[#050505]/80 px-4 py-2 shadow-2xl backdrop-blur-md"
+          }`}
+        >
+          
+          {/* LADO ESQUERDO: Crossfade Logo <-> Foto */}
+          <div className="flex shrink-0 items-center">
+            <Link href="/" onClick={(e) => handleNavClick(e, "/")} className="relative flex h-10 w-10 items-center justify-start">
+              <motion.div
+                initial={false}
+                animate={{ opacity: isAtTop ? 1 : 0, scale: isAtTop ? 1 : 0.5 }}
+                transition={{ duration: 0.3 }}
+                className="absolute left-0 flex items-center"
+              >
+                <span className="text-xl font-black tracking-tighter text-zinc-100">
+                  BR<span className="text-purple-500">.</span>
+                </span>
+              </motion.div>
+              <motion.div
+                initial={false}
+                animate={{ opacity: isAtTop ? 0 : 1, scale: isAtTop ? 0.5 : 1 }}
+                transition={{ duration: 0.3 }}
+                className="absolute left-0 flex items-center justify-center pointer-events-none"
+              >
+                <div className={`relative h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-700/50 transition-colors ${!isAtTop && 'pointer-events-auto hover:border-purple-500'}`}>
+                  <Image src="/fotopessoalBento.jpeg" alt="Bento" fill className="object-cover" />
+                </div>
+              </motion.div>
             </Link>
-          ))}
-        </nav>
+          </div>
 
-        {/* BOTÕES DIREITA */}
-        <div className="flex w-1/3 justify-end">
-          <Link
-            href="/#contato"
-            onClick={(e) => handleNavClick(e, "/#contato")}
-            className="hidden rounded-full border border-zinc-800 bg-zinc-900/50 px-4 py-2 text-sm font-semibold text-zinc-300 transition-all hover:border-purple-500/50 hover:bg-zinc-900 hover:text-white md:block backdrop-blur-sm"
-          >
-            Falar Comigo
-          </Link>
+          {/* CENTRO DESKTOP: Links */}
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.id;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`relative px-2 py-1 text-sm font-medium transition-colors hover:text-purple-400 ${
+                    isActive ? "text-white" : isAtTop ? "text-zinc-400" : "text-zinc-300"
+                  }`}
+                >
+                  {link.name}
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeSectionIndicator"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] rounded-full bg-purple-500"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                    />
+                  )}
+                </Link>
+              );
+            })}
+          </nav>
 
-          {/* BOTÃO MOBILE */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="group flex h-10 w-10 items-center justify-center rounded-lg border border-zinc-800 bg-zinc-900/50 text-zinc-400 transition-all hover:border-purple-500/50 hover:text-purple-400 md:hidden"
-            aria-label="Menu"
-          >
-            {isOpen ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:rotate-90"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-            )}
-          </button>
-        </div>
-      </div>
+          {/* CENTRO MOBILE: Indicador Dinâmico (Sempre visível ao rolar) */}
+          {!isAtTop && (
+            <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center md:hidden pointer-events-none">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={activeSection}
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -5 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-500"
+                >
+                  {navLinks.find(l => l.id === activeSection)?.name || ""}
+                </motion.span>
+              </AnimatePresence>
+            </div>
+          )}
 
-      {/* DROPDOWN MOBILE */}
+          {/* LADO DIREITO: Ícones */}
+          <div className="flex shrink-0 items-center gap-3">
+            <a
+              href="mailto:bento.rangel05@gmail.com"
+              className={`flex items-center justify-center h-9 w-9 rounded-full transition-all duration-300 ${
+                isAtTop
+                  ? "bg-zinc-900/50 text-zinc-400 border border-zinc-800 hover:bg-zinc-800 hover:text-white"
+                  : "bg-purple-600 text-white hover:bg-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.4)]"
+              }`}
+              aria-label="Enviar E-mail Direto"
+            >
+              <Mail size={16} />
+            </a>
+
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`group relative z-[110] flex h-9 w-9 items-center justify-center rounded-full transition-all md:hidden ${
+                isAtTop 
+                  ? "text-zinc-400 hover:text-purple-400" 
+                  : "bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-purple-500 hover:text-purple-400"
+              }`}
+              aria-label="Menu"
+            >
+              {isOpen ? <X size={18} /> : <Menu size={18} />}
+            </button>
+          </div>
+
+        </motion.div>
+      </motion.div>
+
+      {/* OVERLAY MOBILE */}
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out md:hidden ${
-          isOpen ? "max-h-[400px] border-t border-zinc-800/50 bg-[#050505]/95 backdrop-blur-md" : "max-h-0"
+        className={`fixed inset-0 z-[90] flex flex-col justify-center px-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
+          isOpen ? "bg-[#050505]/95 backdrop-blur-xl opacity-100 pointer-events-auto" : "bg-[#050505]/0 opacity-0 pointer-events-none"
         }`}
       >
-        <nav className="flex flex-col items-center gap-6 px-6 py-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
-              className="text-lg font-medium text-zinc-400 transition-colors hover:text-purple-400"
-            >
-              {link.name}
-            </Link>
-          ))}
-          <Link
-            href="/#contato"
-            onClick={(e) => handleNavClick(e, "/#contato")}
-            className="mt-2 flex w-full max-w-xs items-center justify-center rounded-full bg-purple-600 px-6 py-3 font-semibold text-white transition-all hover:bg-purple-500"
+        <div className="flex flex-col items-start gap-6">
+          {navLinks.map((link, i) => {
+            const isActive = activeSection === link.id;
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                style={{ transitionDelay: `${isOpen ? i * 75 : 0}ms` }}
+                className={`text-4xl font-black tracking-tight transition-all duration-500 hover:text-purple-400 ${
+                  isOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
+                } ${isActive ? "text-white" : "text-zinc-600"}`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
+          
+          <div 
+            style={{ transitionDelay: `${isOpen ? navLinks.length * 75 : 0}ms` }}
+            className={`mt-8 transition-all duration-500 ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
           >
-            Falar Comigo
-          </Link>
-        </nav>
+            <a
+              href="mailto:bento.rangel05@gmail.com"
+              className="flex items-center gap-3 rounded-full bg-purple-600 px-6 py-3 text-lg font-bold text-white transition-all hover:bg-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
+            >
+              <Mail size={20} />
+              Enviar E-mail
+            </a>
+          </div>
+        </div>
       </div>
-    </header>
+    </>
   );
 }
