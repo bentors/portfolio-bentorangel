@@ -110,7 +110,16 @@ export default function About() {
           </motion.div>
 
           {/* CARD 6: CTA PARA JORNADA COMPLETA */}
-          <a href="#experiencia" className="order-6 col-span-2 block group">
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              const target = document.getElementById("experiencia");
+              if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="order-6 col-span-2 block group w-full text-left cursor-pointer"
+          >
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +141,7 @@ export default function About() {
                 </div>
               </div>
             </motion.div>
-          </a>
+          </button>
 
         </div>
       </div>

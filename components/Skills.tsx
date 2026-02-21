@@ -151,7 +151,7 @@ export default function Skills() {
               <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Arsenal</span>
             </div>
             <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
-              Stack<span className="text-zinc-600">.</span>
+              Stacks<span className="text-zinc-600">.</span>
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
