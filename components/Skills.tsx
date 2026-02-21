@@ -202,24 +202,6 @@ export default function Skills() {
           ))}
         </div>
 
-        {/* CTA FINAL DE ALTO IMPACTO */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }} 
-          className="mt-16 md:mt-24 flex justify-center md:justify-start lg:justify-end"
-        >
-          <a 
-            href="/sobre" 
-            className="group flex items-center gap-4 rounded-full border border-purple-500/30 bg-purple-600/10 px-8 py-4 font-bold text-white transition-all hover:border-purple-500 hover:bg-purple-600 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] backdrop-blur-sm"
-          >
-            <span>Ver diplomas e jornada detalhada</span>
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-purple-600 transition-transform group-hover:translate-x-1">
-              <ArrowRight size={16} strokeWidth={3} />
-            </div>
-          </a>
-        </motion.div>
-
       </div>
     </section>
   );

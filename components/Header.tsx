@@ -9,6 +9,7 @@ import { Mail, Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Sobre", href: "/#sobre", id: "sobre" },
+  { name: "Trajetória", href: "/#experiencia", id: "experiencia" },
   { name: "Skills", href: "/#skills", id: "skills" },
   { name: "Projetos", href: "/#projetos", id: "projetos" },
   { name: "Contato", href: "/#contato", id: "contato" },
@@ -33,15 +34,21 @@ export default function Header() {
           }
         });
       },
-      { rootMargin: "-40% 0px -60% 0px" } 
+      { rootMargin: "-30% 0px -60% 0px" } 
     );
 
     const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => {
-      if (window.scrollY < 100) setActiveSection("");
+      if (window.scrollY < 100) {
+        setActiveSection("");
+      }
+      else if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50) {
+        setActiveSection("contato");
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
 
     return () => {

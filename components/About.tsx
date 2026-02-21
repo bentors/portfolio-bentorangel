@@ -1,26 +1,13 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { MapPin, GraduationCap, Code2, Rocket, ArrowRight } from "lucide-react";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120 } },
-};
-
 export default function About() {
   return (
-    <section id="sobre" className="overflow-hidden relative py-24 sm:py-32">
+    <section id="sobre" className="relative py-24 sm:py-32">
 
       <div className="mx-auto max-w-5xl px-6 relative z-10">
         
@@ -36,18 +23,15 @@ export default function About() {
           </h2>
         </motion.div>
 
-        {/* BOX GRID: Usa 'order' para reorganizar no mobile sem quebrar o desktop */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6"
-        >
+        {/* BOX GRID */}
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:gap-6">
           
           {/* CARD 1: BIO PRINCIPAL */}
           <motion.div 
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0 }}
             className="order-1 col-span-2 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-6 sm:p-8 transition-all hover:bg-zinc-900/40"
           >
             <div className="mb-4 sm:mb-8">
@@ -61,7 +45,10 @@ export default function About() {
 
           {/* CARD 2: FOTO PESSOAL */}
           <motion.div 
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="order-2 col-span-1 group relative h-48 sm:h-64 md:h-auto overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900"
           >
             <Image 
@@ -76,7 +63,10 @@ export default function About() {
 
           {/* CARD 3: ACADEMIA */}
           <motion.div 
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0 }}
             className="order-4 md:order-3 col-span-2 md:col-span-1 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-6 sm:p-8 transition-all hover:border-purple-500/30 hover:bg-zinc-900/40"
           >
             <GraduationCap className="mb-4 text-purple-400" size={32} strokeWidth={1.5} />
@@ -89,7 +79,10 @@ export default function About() {
 
           {/* CARD 4: BUSINESS */}
           <motion.div 
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0.15 }}
             className="order-5 md:order-4 col-span-2 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-6 sm:p-8 transition-all hover:bg-zinc-900/40 md:flex-row md:items-center gap-6"
           >
             <div className="flex-1">
@@ -103,7 +96,10 @@ export default function About() {
 
           {/* CARD 5: LOCALIZAÇÃO */}
           <motion.div 
-            variants={itemVariants}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: 0 }}
             className="order-3 md:order-5 col-span-1 group relative flex flex-col items-center justify-center overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-4 sm:p-8 transition-all hover:bg-zinc-900/40 text-center"
           >
             <div className="mb-3 sm:mb-4 flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-zinc-800/50 text-purple-400 transition-transform md:group-hover:scale-110 md:group-hover:bg-purple-500/20">
@@ -114,9 +110,12 @@ export default function About() {
           </motion.div>
 
           {/* CARD 6: CTA PARA JORNADA COMPLETA */}
-          <Link href="/sobre" className="order-6 col-span-2 block group">
+          <a href="#experiencia" className="order-6 col-span-2 block group">
             <motion.div 
-              variants={itemVariants}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="relative flex h-full flex-col justify-center overflow-hidden rounded-3xl border border-purple-500/20 bg-purple-600/5 p-6 sm:p-8 transition-all duration-300 md:group-hover:bg-purple-600/10 md:group-hover:border-purple-500/50 md:group-hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
@@ -133,9 +132,9 @@ export default function About() {
                 </div>
               </div>
             </motion.div>
-          </Link>
+          </a>
 
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -34,24 +34,6 @@ export default function Hero() {
 
       {/* CONTEÚDO PRINCIPAL */}
       <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-6 relative z-10">
-        
-        {/* TOPO: Badge de Status */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="mb-8 flex items-center gap-3"
-        >
-          <div className="flex items-center gap-2 rounded-full border border-zinc-800 bg-zinc-900/40 px-4 py-2 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
-              Baseado em São Paulo
-            </span>
-          </div>
-        </motion.div>
 
         {/* TÍTULOS GIGANTES */}
         <motion.div 
