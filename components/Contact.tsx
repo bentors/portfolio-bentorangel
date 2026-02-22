@@ -61,7 +61,7 @@ export default function Contact() {
               Vamos conversar<span className="text-purple-500">.</span>
             </h2>
             <p className="max-w-2xl text-zinc-400 font-medium text-base md:text-lg">
-              Estou sempre aberto a discutir arquitetura de software, oportunidades de liderança técnica ou novos projetos. Respondo mais rápido do que meu código compila.
+              Aberto a oportunidades em engenharia de software e dados. Se você busca alguém que constrói sistemas sólidos, aprende rápido e entrega resultado, pode me chamar. Respondo mais rápido que o build do Java.
             </p>
           </div>
         </motion.div>

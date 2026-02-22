@@ -30,12 +30,12 @@ const skillCategories = [
         icon: <Leaf size={32} strokeWidth={1.5} />,
       },
       {
-        name: "PostgreSQL",
+        name: "SQL",
         color: "hover:border-[#336791]/50 hover:bg-[#336791]/10 text-[#336791]",
         icon: <Database size={32} strokeWidth={1.5} />,
       },
       {
-        name: "Docker",
+        name: "MongoDB",
         color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
         icon: <Box size={32} strokeWidth={1.5} />,
       },
@@ -51,7 +51,7 @@ const skillCategories = [
     ],
   },
   {
-    title: "Análise de Dados & B.I.",
+    title: "Data & Analytics",
     items: [
       {
         name: "Python",
@@ -66,11 +66,6 @@ const skillCategories = [
         name: "Pandas",
         color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]",
         icon: <Table2 size={32} strokeWidth={1.5} />,
-      },
-      {
-        name: "Matplotlib",
-        color: "hover:border-[#11557C]/80 hover:bg-[#11557C]/30 text-[#11557C]",
-        icon: <LineChart size={32} strokeWidth={1.5} />,
       },
       {
         name: "Power BI",
@@ -117,15 +112,6 @@ const skillCategories = [
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
-          </svg>
-        ),
-      },
-      {
-        name: "Framer Motion",
-        color: "hover:border-[#E902B5]/50 hover:bg-[#E902B5]/10 text-[#E902B5]",
-        icon: (
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M4 0h16v8h-8zM4 8h8l8 8H4zM4 16h8v8z" />
           </svg>
         ),
       },

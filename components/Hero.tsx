@@ -96,10 +96,10 @@ export default function Hero() {
           className="mt-12 max-w-2xl md:pl-16"
         >
           <h2 className="text-xl md:text-2xl font-bold text-zinc-200 mb-4">
-            Engenheiro de Software & Dados.
+            Software Engineer.
           </h2>
           <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
-            Graduando na FIAP, unindo arquitetura robusta e análises inteligentes para construir soluções de alto impacto. Foco em <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span> e interfaces fluidas.
+            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, <span className="text-zinc-200">Spring Boot</span> e uma paixão por resolver problemas complexos com código elegante. Eng. de Software na FIAP.
           </p>
         </motion.div>
       </div>

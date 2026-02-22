@@ -11,41 +11,40 @@ const courses = [
     title: "Engenharia de Software",
     institution: "FIAP",
     icon: <GraduationCap size={24} />,
-    description: "Formação completa focada em arquitetura de sistemas, design patterns e metodologias ágeis. Base sólida para construir aplicações escaláveis e indestrutíveis.",
-    tech: ["Arquitetura", "Design Patterns", "Engenharia"],
+    description: "Formação completa focada em arquitetura de sistemas, design patterns e metodologias ágeis. Base sólida para construir aplicações escaláveis. Previsão de conclusão: dezembro de 2027.",
+    tech: ["Arquitetura", "Design Patterns", "OOP"],
   },
   {
     id: "02",
     period: "Especialização",
-    title: "Arquitetura Back-end",
-    institution: "Java & Spring Boot",
+    title: "Backend Java",
+    institution: "Alura - 523h em andamento",
     icon: <Code2 size={24} />,
-    description: "Aprofundamento na construção de motores transacionais seguros, APIs RESTful de alta performance e microsserviços blindados para o mercado financeiro.",
-    tech: ["Java", "Spring Boot", "PostgreSQL", "Docker"],
+    description: "Aprofundamento em Microsserviços, Orientação a Objetos, APIs, tratamento de erros e boas práticas de desenvolvimento backend.",
+    tech: ["Java", "Spring Boot", "APIs", "OOP"],
   },
   {
     id: "03",
     period: "Certificação",
-    title: "Engenharia de Dados & B.I.",
-    institution: "Python & Analytics",
+    title: "Dados & Analytics",
+    institution: "Python, Power BI & Big Data",
     icon: <Database size={24} />,
-    description: "Domínio na criação de pipelines automatizados (ETL), manipulação de grandes volumes de dados e criação de dashboards interativos para tomada de decisão.",
+    description: "Python para análise de dados (Alura), Power BI avançado (Udemy) e fundamentos de Big Data (FIAP). Foco em ETL, visualização e tomada de decisão orientada a dados.",
     tech: ["Python", "Pandas", "Power BI", "SQL"],
   },
   {
     id: "04",
-    period: "Bootcamp",
-    title: "Front-end de Performance",
-    institution: "React & Ecossistema",
+    period: "Complementar",
+    title: "Gestão & Processos",
+    institution: "Alura & DHL",
     icon: <Layout size={24} />,
-    description: "Desenvolvimento de interfaces modernas, fluidas e otimizadas para conversão e SEO, atingindo métricas de excelência no Google Lighthouse.",
-    tech: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    description: "Visão geral de processos de negócios e como a tecnologia se integra à estratégia empresarial. Essencial para desenvolver soluções que geram impacto real.",
+    tech: ["Business Intelligence", "Processos", "Visão de produto"],
   }
 ];
 
 export default function Experience() {
   return (
-    // Se quiser, pode mudar o ID para "formacao", só não esqueça de mudar o link no About.tsx!
     <section id="experiencia" className="relative py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
         
@@ -82,7 +81,6 @@ export default function Experience() {
           {courses.map((course) => (
             <div 
               key={course.id}
-              // A MÁGICA ESTÁ AQUI: Trocamos o 'min-w' por larguras fixas ('w-[85vw]') para obrigar o texto a quebrar.
               className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-[#0f0f0f]"
             >
               
