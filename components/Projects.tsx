@@ -19,12 +19,12 @@ const projects = [
   },
   {
     id: "02",
-    title: "Controle de estoque",
+    title: "SmartInventory",
     subtitle: "Backend Architecture",
-    description: "Sistema robusto para gerenciamento de inventário com operações CRUD completas. Permite cadastro, atualização e remoção de produtos com persistência em banco de dados relacional e validações de integridade.",
-    tech: ["Java", "CRUD", "SQL"],
-    github: "https://github.com/bentors",
-    link: "#",
+    description: "API escalável desenvolvida com Java 21 e Spring Boot, focada em alta disponibilidade e integridade de dados. O projeto utiliza Docker, PostgreSQL e Flyway. Conta com documentação interativa via Swagger/OpenAPI e segurança robusta via Spring Security.",
+    tech: ["Java", "Docker", "Flyway", "Spring Boot"],
+    github: "https://github.com/bentors/smart-inventory-api", 
+    link: "https://smartinventory-api-m3gr.onrender.com/swagger-ui/index.html",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000",
   },
   {

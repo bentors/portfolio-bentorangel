@@ -127,8 +127,18 @@ export default function Hero() {
 
         {/* Lado Direito: Links */}
         <div className="flex w-full md:w-auto justify-between md:justify-end gap-8 text-xs font-bold uppercase tracking-widest text-zinc-500">
-          <a href="#sobre" className="transition-colors hover:text-purple-400">01. Perfil</a>
-          <a href="#projetos" className="transition-colors hover:text-purple-400">02. Cases</a>
+          <button 
+            onClick={() => document.getElementById("sobre")?.scrollIntoView({ behavior: "smooth" })}
+            className="transition-colors hover:text-purple-400 cursor-pointer"
+          >
+            01. Perfil
+          </button>
+          <button 
+            onClick={() => document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" })}
+            className="transition-colors hover:text-purple-400 cursor-pointer"
+          >
+            02. Cases
+          </button>
         </div>
       </motion.div>
       

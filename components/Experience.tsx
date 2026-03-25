@@ -76,8 +76,25 @@ export default function Experience() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+          className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 pt-4 -mx-4 px-4 sm:mx-0 sm:px-0 scroll-smooth
+            /* ESTILO PARA CHROME/SAFARI/EDGE */
+            [&::-webkit-scrollbar]:h-[3px]           /* Altura mínima no Mobile */
+            sm:[&::-webkit-scrollbar]:h-1.5         /* Altura um pouco maior no Desktop */
+            
+            [&::-webkit-scrollbar-track]:bg-zinc-900/50 
+            [&::-webkit-scrollbar-track]:rounded-full
+            
+            [&::-webkit-scrollbar-thumb]:bg-purple-600/30 
+            [&::-webkit-scrollbar-thumb]:rounded-full
+            
+            /* Hover apenas no Desktop para não poluir o toque no Mobile */
+            sm:hover:[&::-webkit-scrollbar-thumb]:bg-purple-500/60
+            
+            /* Firefox */
+            [scrollbar-width:thin]
+            [scrollbar-color:rgba(168,85,247,0.3)_transparent]"
         >
+
           {courses.map((course) => (
             <div 
               key={course.id}

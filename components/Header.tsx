@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
+import { motion, useScroll, AnimatePresence } from "framer-motion";
 import { Mail, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -17,7 +17,6 @@ const navLinks = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isHidden, setIsHidden] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [activeSection, setActiveSection] = useState("");
   
@@ -41,6 +40,7 @@ export default function Header() {
     sections.forEach((section) => observer.observe(section));
 
     const handleScroll = () => {
+      setIsAtTop(window.scrollY < 60); // Controla a pílula
       if (window.scrollY < 100) {
         setActiveSection("");
       }
@@ -56,33 +56,6 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-
-  // CONTROLE DA DINÂMICA DE SCROLL
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    // Verifica se é mobile
-    const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    
-    if (latest <= 60) {
-      setIsAtTop(true);
-      setIsHidden(false); 
-    } else {
-      setIsAtTop(false);
-      
-      // Se rolou para baixo...
-      if (latest > previous && latest > 150) {
-        // No Desktop: esconde o header. No Mobile: mantém visível.
-        if (!isMobile) {
-          setIsHidden(true);
-        }
-        setIsOpen(false); // Sempre fecha o menu ao rolar a página
-      } 
-      // Se rolou para cima...
-      else {
-        setIsHidden(false);
-      }
-    }
-  });
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     setIsOpen(false);
@@ -101,13 +74,9 @@ export default function Header() {
 
   return (
     <>
+      {/* Wrapper fixado: removido animate={isHidden} para ele ficar sempre visível */}
       <motion.div
-        variants={{
-          visible: { y: 0, opacity: 1 },
-          hidden: { y: "-150%", opacity: 0 },
-        }}
-        animate={isHidden ? "hidden" : "visible"}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }} 
+        initial={{ y: 0, opacity: 1 }}
         className="fixed left-0 right-0 top-6 z-[100] flex justify-center px-4 pointer-events-none"
       >
         <motion.div
@@ -171,7 +140,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CENTRO MOBILE: Indicador Dinâmico (Sempre visível ao rolar) */}
+          {/* CENTRO MOBILE: Indicador Dinâmico */}
           {!isAtTop && (
             <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center md:hidden pointer-events-none">
               <AnimatePresence mode="wait">
@@ -242,19 +211,6 @@ export default function Header() {
               </Link>
             );
           })}
-          
-          <div 
-            style={{ transitionDelay: `${isOpen ? navLinks.length * 75 : 0}ms` }}
-            className={`mt-8 transition-all duration-500 ${isOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"}`}
-          >
-            <a
-              href="mailto:bento.rangel05@gmail.com"
-              className="flex items-center gap-3 rounded-full bg-purple-600 px-6 py-3 text-lg font-bold text-white transition-all hover:bg-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-            >
-              <Mail size={20} />
-              Enviar E-mail
-            </a>
-          </div>
         </div>
       </div>
     </>
