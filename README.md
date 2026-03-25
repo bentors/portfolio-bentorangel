@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ Bento Rangel | Software Engineer Portfolio
 
-## Getting Started
+Este é o código-fonte do meu portfólio pessoal. Uma Single Page Application (SPA) de alta performance, construída com foco em UX, arquitetura limpa e estética brutalista.
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O projeto foi desenvolvido utilizando as tecnologias mais modernas do ecossistema React para garantir velocidade e SEO:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework:** Next.js 14 (App Router)
+- **Linguagem:** TypeScript
+- **Estilização:** Tailwind CSS
+- **Animações:** Framer Motion (Interações suaves e magnéticas)
+- **Ícones:** Lucide React
+- **Deploy:** Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Diferenciais Técnicos
 
-## Learn More
+- **Arquitetura SPA:** Navegação fluida sem recarregamento de página, utilizando Scroll Spy para navegação inteligente.
+- **Bento Grid Layout:** Design responsivo e modular inspirado em interfaces modernas de alta conversão.
+- **Performance:** Imagens otimizadas com Next/Image e componentes renderizados no servidor (RSC) onde aplicável.
+- **Responsividade Brutalista:** Experiência adaptada para Mobile, incluindo carrosséis táteis e navegação simplificada.
 
-To learn more about Next.js, take a look at the following resources:
+## 📖 Seções do Projeto
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Hero:** Proposta de valor clara e direta.
+- **Sobre:** Minha trajetória da curiosidade ao código, incluindo minha vivência na DHL Express.
+- **Formação:** Linha do tempo interativa com foco em Engenharia de Software (FIAP), Java e Python.
+- **Projetos:** Showcase de cases reais como o e-commerce **Street Stars**.
+- **Contato:** Call-to-action direto para WhatsApp, LinkedIn e E-mail, sem fricção de formulários.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Contato
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Bento Rangel – [LinkedIn](https://www.linkedin.com/in/bento-rangel-1854432a6/) – bento.rangel05@gmail.com 
