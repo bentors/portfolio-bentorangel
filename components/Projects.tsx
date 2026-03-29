@@ -10,9 +10,9 @@ const projects = [
   {
     id: "01",
     title: "Street Stars",
-    subtitle: "E-commerce & Performance",
+    subtitle: "E-commerce Full Stack",
     description: "E-commerce completo para marca de streetwear autêntica. Interface fluida e responsiva com foco em conversão e experiência do usuário. Integração com sistemas de pagamento e gerenciamento de produtos em tempo real.",
-    tech: ["React", "Tailwind", "Firebase", "Cloudinary"],
+    tech: ["React", "Tailwind", "Firebase", "APIs"],
     github: "https://github.com/bentors/site-streetstars", 
     link: "https://streetstars.vercel.app/", 
     image: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=2000",
@@ -39,11 +39,11 @@ const projects = [
   },
   {
     id: "04",
-    title: "Currency Converter API",
-    subtitle: "API REST",
-    description: "API RESTful para conversão de moedas em tempo real com histórico de conversões. Consumo de API externa, tratamento robusto de exceções e retorno estruturado em JSON.",
-    tech: ["Java", "Rest API", "JSON", "Exception Handling"],
-    github: "https://github.com/bentors",
+    title: "Finance Dashboard",
+    subtitle: "Full stack Development & Data Visualization",
+    description: "Dashboard de finanças pessoais com backend em Java e frontend em TypeScript. Permite monitorar gastos, visualizar tendências e gerar relatórios personalizados.",
+    tech: ["Java", "TypeScript", "Python", "PostgreSQL"],
+    github: "https://github.com/bentors/finance-dashboard",
     link: "#",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2000",
   }
