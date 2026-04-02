@@ -19,7 +19,7 @@ const projects = [
   },
   {
     id: "02",
-    title: "SmartInventory",
+    title: "SmartInventory API",
     subtitle: "Backend Architecture",
     description: "API escalável desenvolvida com Java 21 e Spring Boot, focada em alta disponibilidade e integridade de dados. O projeto utiliza Docker, PostgreSQL e Flyway. Conta com documentação interativa via Swagger/OpenAPI e segurança robusta via Spring Security.",
     tech: ["Java", "Docker", "Flyway", "Spring Boot"],
@@ -29,24 +29,14 @@ const projects = [
   },
   {
     id: "03",
-    title: "Sentiment Analysis Dashboard",
-    subtitle: "Data Science & Analytics",
-    description: "Pipeline completo de análise de sentimentos aplicado a reviews de aplicativo. Identifica padrões positivos/negativos, funcionalidades mais comentadas e insights acionáveis através de visualizações interativas.",
-    tech: ["Python", "Pandas", "PLN", "Matplotlib"],
-    github: "https://github.com/bentors",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2000",
-  },
-  {
-    id: "04",
-    title: "Finance Dashboard",
-    subtitle: "Full stack Development & Data Visualization",
-    description: "Dashboard de finanças pessoais com backend em Java e frontend em TypeScript. Permite monitorar gastos, visualizar tendências e gerar relatórios personalizados.",
-    tech: ["Java", "TypeScript", "Python", "PostgreSQL"],
+    title: "Aurum Personal Finance",
+    subtitle: "Full Stack Development & Data Analysis",
+    description: "Plataforma completa de finanças pessoais com arquitetura robusta e segura. Possui API em Java com autenticação JWT, isolamento de dados por usuário e alta performance, integrada a um frontend em TypeScript e análises avançadas com Python para geração de insights e visualizações.",
+    tech: ["Java", "Spring Boot", "TypeScript", "Python", "PostgreSQL"],
     github: "https://github.com/bentors/finance-dashboard",
     link: "#",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2000",
-  }
+  },
 ];
 
 export default function Projects() {
