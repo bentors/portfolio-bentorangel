@@ -99,7 +99,7 @@ export default function Hero() {
             Data & Software Engineer.
           </h2>
           <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
-            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, <span className="text-zinc-200">Spring Boot</span> e uma paixão por resolver problemas complexos com código elegante. Eng. de Software na FIAP.
+            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, e uma paixão por resolver problemas complexos através de arquiteturas limpas e decisões orientadas a dados. Eng. de Software na FIAP.
           </p>
         </motion.div>
       </div>

@@ -11,7 +11,7 @@ const courses = [
     title: "Engenharia de Software",
     institution: "FIAP",
     icon: <GraduationCap size={24} />,
-    description: "Formação completa focada em arquitetura de sistemas, design patterns e metodologias ágeis. Base sólida para construir aplicações escaláveis. Previsão de conclusão: dezembro de 2027.",
+    description: "Formação orientada a projetos e resolução de problemas. Base sólida em arquitetura de sistemas, design patterns e metodologias ágeis, com foco prático em construir aplicações corporativas escaláveis. (Conclusão: Dez/2027)",
     tech: ["Arquitetura", "Design Patterns", "OOP"],
   },
   {
@@ -20,7 +20,7 @@ const courses = [
     title: "Backend Java",
     institution: "Alura - 523h em andamento",
     icon: <Code2 size={24} />,
-    description: "Aprofundamento em Microsserviços, Orientação a Objetos, APIs, tratamento de erros e boas práticas de desenvolvimento backend.",
+    description: "Aprofundamento na construção de motores digitais. Foco em microsserviços, consumo e criação de APIs RESTful, tratamento de erros, segurança e aplicação rigorosa de boas práticas (Clean Code / SOLID).",
     tech: ["Java", "Spring Boot", "APIs", "OOP"],
   },
   {
@@ -29,7 +29,7 @@ const courses = [
     title: "Dados & Analytics",
     institution: "Python, Power BI & Big Data",
     icon: <Database size={24} />,
-    description: "Python para análise de dados (Alura), Power BI avançado (Udemy) e fundamentos de Big Data (FIAP). Foco em ETL, visualização e tomada de decisão orientada a dados.",
+    description: "Capacitação voltada para a extração de inteligência de negócios. Domínio prático de Python para análise e automação, orquestração de rotinas ETL, manipulação de bancos SQL e construção de dashboards executivos.",
     tech: ["Python", "Pandas", "Power BI", "SQL"],
   },
   {
@@ -38,7 +38,7 @@ const courses = [
     title: "Gestão & Processos",
     institution: "Alura & DHL",
     icon: <Layout size={24} />,
-    description: "Visão geral de processos de negócios e como a tecnologia se integra à estratégia empresarial. Essencial para desenvolver soluções que geram impacto real.",
+    description: "Visão estratégica forjada na prática operacional de uma multinacional de logística. Compreensão profunda de como a tecnologia otimiza gargalos de negócios, gerando impacto real em eficiência e redução de custos.",
     tech: ["Business Intelligence", "Processos", "Visão de produto"],
   }
 ];

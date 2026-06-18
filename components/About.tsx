@@ -38,7 +38,7 @@ export default function About() {
               <Terminal className="mb-3 sm:mb-4 text-purple-400 w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.5} />
               <h3 className="mb-3 sm:mb-4 text-xl font-bold text-zinc-100 sm:text-3xl leading-tight">Da curiosidade ao código que impacta.</h3>
               <p className="text-zinc-400 leading-relaxed text-sm sm:text-lg font-medium">
-                Minha jornada com tecnologia começou na pandemia, movido por pura curiosidade de explorar novos mundos. O que era experimentação virou fascínio: descobri que resolver problemas complexos com código é onde me sinto no meu elemento. Hoje, curso Engenharia de Software na <span className="text-zinc-200">FIAP</span> e trago essa mesma curiosidade para cada projeto, seja arquitetando backends robustos ou construindo pipelines de dados que contam histórias.
+                Minha jornada na tecnologia não começou apenas com a tela do computador, mas no chão de fábrica operacional. Entendi cedo que sistemas não existem apenas para rodar, mas para resolver dores reais de negócios. Hoje, curso Engenharia de Software na <span className="text-zinc-200">FIAP</span> e aplico essa mentalidade em cada entrega, seja arquitetando back-ends robustos ou estruturando pipelines de dados que otimizam horas de trabalho manual.
               </p>
             </div>
           </motion.div>
@@ -56,7 +56,7 @@ export default function About() {
             <div>
               <h3 className="text-lg sm:text-2xl font-bold text-zinc-100 leading-tight">A mentalidade por trás do motor.</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base font-medium text-zinc-400 leading-relaxed">
-                Não basta funcionar — precisa escalar. Minha abordagem: arquitetura sólida (Java/Spring Boot) + dados inteligentes (Python/SQL). Fundações robustas para resultados sustentáveis.
+                Não basta funcionar — precisa escalar e gerar valor. Minha abordagem: arquitetura sólida (Java/Spring Boot) + dados inteligentes (Python/SQL). Fundações robustas para resultados sustentáveis.
               </p>
             </div>
           </motion.div>
@@ -74,7 +74,7 @@ export default function About() {
             <div>
               <h3 className="mb-2 sm:mb-3 text-lg sm:text-2xl font-bold text-zinc-100">Da operação aos dados.</h3>
               <p className="font-medium text-zinc-400 leading-relaxed text-sm sm:text-base">
-                Atualmente estou na DHL Express: de operações a engenharia de dados. Aprendi a entender o problema antes de escrever código. Sistemas existem para resolver dores reais, não só para funcionar.
+                Com uma vivência intensa na DHL Express, transitei da logística para a engenharia de dados. Lá aprendi a investigar o problema antes de codar. Sistemas existem para resolver dores reais, não só para funcionar.
               </p>
             </div>
           </motion.div>

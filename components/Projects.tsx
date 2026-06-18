@@ -19,6 +19,26 @@ const projects = [
   },
   {
     id: "02",
+    title: "Aurum Finance",
+    subtitle: "Full Stack Development & Data Analysis",
+    description: "Plataforma de finanças pessoais com arquitetura robusta e segura. Possui API em Java com autenticação JWT e isolamento de dados por usuário, integrada a um frontend em TypeScript e análises avançadas com Python para geração de insights e visualizações.",
+    tech: ["Java", "Spring Boot", "TypeScript", "Python", "PostgreSQL"],
+    github: "https://github.com/bentors/finance-dashboard",
+    link: "#",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2000",
+  },
+  {
+    id: "03",
+    title: "REORBITA",
+    subtitle: "Análise & IA Preditiva",
+    description: "Desenvolvimento de um modelo preditivo em Python focado na identificação de anomalias e previsão de eventos raros. Calibragem estatística voltada para a prevenção de riscos críticos e minimização de falsos negativos, raciocínio aplicável diretamente a sistemas de segurança e fraude.",
+    tech: ["Machine Learning", "Python", "Statistics", "Data Analysis"],
+    github: "https://github.com/bentors/reorbita-IAeML", 
+    link: "https://github.com/bentors/reorbita-IAeML",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=2000",
+  },
+  {
+    id: "04",
     title: "SmartInventory API",
     subtitle: "Backend Architecture",
     description: "API escalável desenvolvida com Java 21 e Spring Boot, focada em alta disponibilidade e integridade de dados. O projeto utiliza Docker, PostgreSQL e Flyway. Conta com documentação interativa via Swagger/OpenAPI e segurança robusta via Spring Security.",
@@ -26,16 +46,6 @@ const projects = [
     github: "https://github.com/bentors/smart-inventory-api", 
     link: "https://smartinventory-api-m3gr.onrender.com/swagger-ui/index.html",
     image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000",
-  },
-  {
-    id: "03",
-    title: "Aurum Personal Finance",
-    subtitle: "Full Stack Development & Data Analysis",
-    description: "Plataforma completa de finanças pessoais com arquitetura robusta e segura. Possui API em Java com autenticação JWT, isolamento de dados por usuário e alta performance, integrada a um frontend em TypeScript e análises avançadas com Python para geração de insights e visualizações.",
-    tech: ["Java", "Spring Boot", "TypeScript", "Python", "PostgreSQL"],
-    github: "https://github.com/bentors/finance-dashboard",
-    link: "#",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2000",
   },
 ];
 
