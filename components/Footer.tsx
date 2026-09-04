@@ -37,7 +37,7 @@ export default function Footer() {
             <Github size={22} />
           </a>
           <a 
-            href="https://linkedin.com/in/bento-rangel-1854432a6" 
+            href="https://linkedin.com/in/bentorangel" 
             target="_blank" 
             rel="noreferrer"
             className="text-zinc-500 transition-colors hover:text-[#0A66C2]"
