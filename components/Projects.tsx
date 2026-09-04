@@ -24,7 +24,7 @@ const projects = [
     description: "Plataforma de finanças pessoais com arquitetura robusta e segura. Possui API em Java com autenticação JWT e isolamento de dados por usuário, integrada a um frontend em TypeScript e análises avançadas com Python para geração de insights e visualizações.",
     tech: ["Java", "Spring Boot", "TypeScript", "Python", "PostgreSQL"],
     github: "https://github.com/bentors/finance-dashboard",
-    link: "#",
+    link: "aurum-finance-api.onrender.com/swagger-ui/index.html",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=2000",
   },
   {
