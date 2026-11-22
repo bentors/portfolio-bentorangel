@@ -7,7 +7,7 @@ export type Arch = {
   boundary?: { label: string; x: number; y: number; w: number; h: number };
 };
 
-export const architectures: Record<string, Arch> = {
+export const architectures: Partial<Record<string, Arch>> = {
   "01": {
     title: "Street Stars",
     nodes: [
@@ -15,7 +15,7 @@ export const architectures: Record<string, Arch> = {
       { id: "next", label: "Next.js", sub: "SSR · SEO", x: 110, y: 150 },
       { id: "pay", label: "Pagamento", x: 290, y: 150 },
       { id: "api", label: "API Routes", sub: "Zod · rate limit Upstash", x: 200, y: 270 },
-      { id: "fb", label: "Firebase", sub: "Auth custom claims · Firestore", x: 110, y: 400 },
+      { id: "fb", label: "Firebase", sub: "custom claims · Firestore", x: 110, y: 400 },
       { id: "cld", label: "Cloudinary", sub: "uploads assinados", x: 290, y: 400 },
     ],
     edges: [
@@ -63,7 +63,7 @@ export const architectures: Record<string, Arch> = {
     title: "Ford Vision",
     nodes: [
       { id: "data", label: "Dados Ford", sub: "175 mil veículos", x: 200, y: 50 },
-      { id: "pre", label: "Pré-processamento", sub: "winsorização · padronização", x: 200, y: 130 },
+      { id: "pre", label: "Pré-processamento", sub: "winsorização · escala", x: 200, y: 130 },
       { id: "km", label: "K-Means", sub: "3 perfis", x: 200, y: 210 },
       { id: "clf", label: "Classificador", sub: "Pipeline sklearn", x: 200, y: 290 },
       { id: "fast", label: "FastAPI", x: 200, y: 370 },

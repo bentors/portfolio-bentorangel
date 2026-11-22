@@ -39,7 +39,7 @@ body {
 @property --r { syntax: "<length>"; inherits: true; initial-value: 0px; }
 
 .xray-layer {
-  clip-path: circle(var(--r) at var(--x) var(--y));
+  clip-path: circle(var(--r, 0px) at var(--x, 50%) var(--y, 50%));
   transition: --r 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .xray[data-active="true"] { --r: var(--xr-max); }
@@ -86,5 +86,6 @@ body {
   .xray-layer { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .xray-layer { transition: none; }
   .xray-packet { display: none; }
 }

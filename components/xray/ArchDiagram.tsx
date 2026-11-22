@@ -2,7 +2,8 @@ import type { Arch } from "./architectures";
 
 const PURPLE = "#a855f7";
 
-export default function ArchDiagram({ arch }: { arch: Arch }) {
+export default function ArchDiagram({ arch }: { arch?: Arch }) {
+  if (!arch) return null;
   const byId = Object.fromEntries(arch.nodes.map((n) => [n.id, n]));
   const b = arch.boundary;
 
