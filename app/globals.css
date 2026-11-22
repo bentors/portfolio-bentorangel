@@ -89,7 +89,3 @@ body {
   .xray-layer { transition: none; }
   .xray-packet { display: none; }
 }
-
-/* Teclado: foco revela a planta inteira */
-.xray:focus-visible { outline: 2px solid #a855f7; outline-offset: 4px; }
-.xray:focus-visible .xray-layer { clip-path: none; opacity: 1; animation: none; }

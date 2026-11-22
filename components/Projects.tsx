@@ -52,7 +52,7 @@ const projects = [
   },
 ];
 
-// Descrição textual da arquitetura (leitores de tela / foco pelo teclado)
+// Descrição textual da arquitetura (leitores de tela)
 const archText = (id: string) => {
   const a = architectures[id];
   return a ? `Arquitetura ${a.title}: ${archFlows(a).join("; ")}` : undefined;
@@ -175,6 +175,7 @@ export default function Projects() {
                   <p className="max-w-lg text-zinc-400 font-medium leading-relaxed transition-colors duration-300 group-hover:text-zinc-300">
                     {project.description}
                   </p>
+                  <span className="sr-only">{archText(project.id)}</span>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
@@ -215,13 +216,13 @@ export default function Projects() {
               className="pointer-events-auto aspect-[4/5] w-full max-w-md rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]"
               radius={110}
               demo
-              description={archText(projects[hoveredIndex].id)}
               blueprint={<ArchDiagram arch={architectures[projects[hoveredIndex].id]} />}
             >
               {/* Todas as imagens ficam montadas; só o transform anima (sem remount nem blur) */}
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
+                  aria-hidden={index !== hoveredIndex}
                   initial={false}
                   animate={{ y: index === hoveredIndex ? "0%" : index < hoveredIndex ? "-100%" : "100%" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
