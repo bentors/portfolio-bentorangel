@@ -1,11 +1,13 @@
 "use client";
 
+import XRay from "@/components/xray/XRay";
 import { motion } from "framer-motion";
 import { GraduationCap, Code2, Database, BarChart3, Briefcase, Rocket, MoveRight } from "lucide-react";
 
 const courses = [
   {
     id: "01",
+    specs: ["Back-end: Django · Python", "Front-end: React · TSX", "Banco: PostgreSQL", "Ambiente: Linux", "Desde: Ago/2026"],
     period: "Ago/2026 — Atual",
     title: "Estágio em Desenvolvimento Full Stack",
     institution: "Neotel",
@@ -15,6 +17,7 @@ const courses = [
   },
   {
     id: "02",
+    specs: ["Papel: cofundador · tech lead", "Segurança: webhooks HMAC · preço validado no servidor", "Auth: Firebase custom claims", "Uploads assinados · rate limiting", "UX/SEO: auditoria do checkout"],
     period: "Dez/2024 — Atual",
     title: "Cofundador & Tech Lead",
     institution: "Street Stars",
@@ -24,6 +27,7 @@ const courses = [
   },
   {
     id: "03",
+    specs: ["v1 · Jovem Aprendiz em Operações (2023)", "v2 · Estagiário em Dados (2024–2026)", "Automação: Python", "Pipelines: SQL → Snowflake", "BI: Power BI"],
     period: "Jun/2023 — Jun/2026",
     title: "Estagiário em Dados · Service Quality",
     institution: "DHL Express",
@@ -33,6 +37,7 @@ const courses = [
   },
   {
     id: "04",
+    specs: ["Conclusão: Dez/2027", "Projetos: AlertaSP · Ford Vision · Aurum", "Ênfase: arquitetura · SOA · IA/ML"],
     period: "Graduação",
     title: "Engenharia de Software",
     institution: "FIAP · Conclusão Dez/2027",
@@ -42,6 +47,7 @@ const courses = [
   },
   {
     id: "05",
+    specs: ["Carga: 523h (em andamento)", "Spring Boot · REST · segurança", "Clean Code · SOLID"],
     period: "Especialização",
     title: "Backend Java",
     institution: "Alura - 523h em andamento",
@@ -51,6 +57,7 @@ const courses = [
   },
   {
     id: "06",
+    specs: ["Python · Pandas", "ETL · SQL", "Power BI · dashboards"],
     period: "Certificação",
     title: "Dados & Analytics",
     institution: "Python, Power BI & Big Data",
@@ -112,10 +119,23 @@ export default function Experience() {
             [scrollbar-color:rgba(168,85,247,0.3)_transparent]"
         >
 
-          {courses.map((course) => (
-            <div 
+          {courses.map((course, i) => (
+            <XRay
               key={course.id}
+              radius={170}
+              demo={i === 0}
               className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-[#0f0f0f]"
+              blueprint={
+                <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center sm:p-10">
+                  <span className="bp-label">{`// FICHA TÉCNICA · ${course.id}`}</span>
+                  <h3 className="font-mono text-lg font-bold text-purple-200">{course.title}</h3>
+                  <ul className="flex flex-col gap-2 font-mono text-xs text-purple-300/90">
+                    {course.specs.map((l) => (
+                      <li key={l}>› {l}</li>
+                    ))}
+                  </ul>
+                </div>
+              }
             >
               
               {/* Topo do Card: Período e Ícone */}
@@ -153,7 +173,7 @@ export default function Experience() {
                 </div>
               </div>
 
-            </div>
+            </XRay>
           ))}
         </motion.div>
 

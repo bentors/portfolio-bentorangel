@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
+import XRay from "@/components/xray/XRay";
+import ArchDiagram from "@/components/xray/ArchDiagram";
+import { architectures } from "@/components/xray/architectures";
 
 {/* ARRAY DE PROJETOS */}
 const projects = [
@@ -92,10 +95,10 @@ export default function Projects() {
               }}
             >
               {/* Metade Superior: Imagem */}
-              <div className="relative h-48 sm:h-56 w-full border-b border-zinc-800">
+              <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" blueprint={<ArchDiagram arch={architectures[project.id]} />}>
                 <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 384px" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
-              </div>
+              </XRay>
 
               {/* Metade Inferior: Textos Compactos */}
               <div className="flex flex-col p-6 sm:p-8 gap-4 relative z-10 bg-[#0a0a0a]">
@@ -202,7 +205,12 @@ export default function Projects() {
 
           {/* LADO DIREITO: A imagem fixa com Rolagem */}
           <div className="hidden lg:flex lg:col-span-5 sticky top-0 h-screen items-center justify-center pointer-events-none">
-            <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+            <XRay
+              className="pointer-events-auto aspect-[4/5] w-full max-w-md rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+              radius={110}
+              demo
+              blueprint={<ArchDiagram arch={architectures[projects[hoveredIndex].id]} />}
+            >
               {/* Todas as imagens ficam montadas; só o transform anima (sem remount nem blur) */}
               {projects.map((project, index) => (
                 <motion.div
@@ -223,7 +231,7 @@ export default function Projects() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-[#050505]/20" />
                 </motion.div>
               ))}
-            </div>
+            </XRay>
           </div>
 
         </div>

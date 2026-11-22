@@ -33,3 +33,59 @@ html,
 body {
   max-width: 100vw;
 }
+/* ---- Raio-X / blueprint ---- */
+@property --x { syntax: "<length-percentage>"; inherits: true; initial-value: 50%; }
+@property --y { syntax: "<length-percentage>"; inherits: true; initial-value: 50%; }
+@property --r { syntax: "<length>"; inherits: true; initial-value: 0px; }
+
+.xray-layer {
+  clip-path: circle(var(--r, 0px) at var(--x, 50%) var(--y, 50%));
+  transition: --r 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.xray[data-active="true"] { --r: var(--xr-max); }
+
+.blueprint {
+  background-color: #0a0714;
+  background-image:
+    linear-gradient(rgba(168, 85, 247, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(168, 85, 247, 0.12) 1px, transparent 1px);
+  background-size: 16px 16px;
+  border: 1px dashed rgba(168, 85, 247, 0.6);
+}
+.bp-label {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #c084fc;
+}
+
+@keyframes xray-demo {
+  0% { --r: 0px; --x: 25%; --y: 50%; }
+  30% { --r: var(--xr-max); }
+  70% { --r: var(--xr-max); }
+  100% { --r: 0px; --x: 75%; --y: 50%; }
+}
+@keyframes xray-build {
+  0%, 40% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (hover: hover) {
+  .xray[data-demo][data-inview] .xray-layer { animation: xray-demo 2.2s ease-in-out 1; }
+}
+@media (hover: none) {
+  .xray-layer { clip-path: none; opacity: 0; }
+  .xray[data-inview] .xray-layer { animation: xray-build 1.6s ease-out forwards; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xray[data-demo][data-inview] .xray-layer,
+  .xray[data-inview] .xray-layer { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) and (hover: none) {
+  .xray-layer { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .xray-layer { transition: none; }
+  .xray-packet { display: none; }
+}

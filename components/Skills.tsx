@@ -1,5 +1,6 @@
 "use client";
 
+import XRay from "@/components/xray/XRay";
 import { motion } from "framer-motion";
 import {
   Coffee, Leaf, Server, Database, Box, Flame, DatabaseZap, Sheet, BrainCircuit,
@@ -12,31 +13,37 @@ const skillCategories = [
     items: [
       {
         name: "Java",
+        usedIn: ["Aurum", "AlertaSP", "SmartInventory"],
         color: "hover:border-[#E76F00]/50 hover:bg-[#E76F00]/10 text-[#E76F00]",
         icon: <Coffee size={32} strokeWidth={1.5} />,
       },
       {
         name: "Spring Boot",
+        usedIn: ["Aurum", "AlertaSP"],
         color: "hover:border-[#6DB33F]/50 hover:bg-[#6DB33F]/10 text-[#6DB33F]",
         icon: <Leaf size={32} strokeWidth={1.5} />,
       },
       {
         name: "Django",
+        usedIn: ["Neotel"],
         color: "hover:border-[#44B78B]/50 hover:bg-[#44B78B]/10 text-[#44B78B]",
         icon: <Server size={32} strokeWidth={1.5} />,
       },
       {
         name: "PostgreSQL",
+        usedIn: ["Aurum", "AlertaSP", "Neotel"],
         color: "hover:border-[#336791]/50 hover:bg-[#336791]/10 text-[#336791]",
         icon: <Database size={32} strokeWidth={1.5} />,
       },
       {
         name: "MongoDB",
+        usedIn: ["Estudos", "Alura"],
         color: "hover:border-[#47A248]/50 hover:bg-[#47A248]/10 text-[#47A248]",
         icon: <Box size={32} strokeWidth={1.5} />,
       },
       {
         name: "Firebase",
+        usedIn: ["Street Stars"],
         color: "hover:border-[#FFCA28]/50 hover:bg-[#FFCA28]/10 text-[#FFCA28]",
         icon: <Flame size={32} strokeWidth={1.5} />,
       },
@@ -47,6 +54,7 @@ const skillCategories = [
     items: [
       {
         name: "Python",
+        usedIn: ["Ford Vision", "DHL", "Neotel"],
         color: "hover:border-[#FFD43B]/50 hover:bg-[#FFD43B]/10 text-[#FFD43B]",
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -56,26 +64,31 @@ const skillCategories = [
       },
       {
         name: "SQL",
+        usedIn: ["DHL", "Aurum"],
         color: "hover:border-[#00A1E0]/50 hover:bg-[#00A1E0]/10 text-[#00A1E0]",
         icon: <DatabaseZap size={32} strokeWidth={1.5} />,
       },
       {
         name: "Pandas",
+        usedIn: ["Ford Vision", "DHL"],
         color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]",
         icon: <Sheet size={32} strokeWidth={1.5} />,
       },
       {
         name: "scikit-learn",
+        usedIn: ["Ford Vision", "AlertaSP"],
         color: "hover:border-[#F7931E]/50 hover:bg-[#F7931E]/10 text-[#F7931E]",
         icon: <BrainCircuit size={32} strokeWidth={1.5} />,
       },
       {
         name: "Snowflake",
+        usedIn: ["DHL"],
         color: "hover:border-[#29B5E8]/50 hover:bg-[#29B5E8]/10 text-[#29B5E8]",
         icon: <Snowflake size={32} strokeWidth={1.5} />,
       },
       {
         name: "Power BI",
+        usedIn: ["DHL"],
         color: "hover:border-[#F2C811]/50 hover:bg-[#F2C811]/10 text-[#F2C811]",
         icon: <BarChart3 size={32} strokeWidth={1.5} />,
       },
@@ -86,6 +99,7 @@ const skillCategories = [
     items: [
       {
         name: "React",
+        usedIn: ["Aurum", "Neotel"],
         color: "hover:border-[#61DAFB]/50 hover:bg-[#61DAFB]/10 text-[#61DAFB]",
         icon: (
           <svg viewBox="-11.5 -10.23174 23 20.46348" width="32" height="32" fill="currentColor">
@@ -100,16 +114,19 @@ const skillCategories = [
       },
       {
         name: "TypeScript",
+        usedIn: ["Street Stars", "Aurum", "Neotel"],
         color: "hover:border-[#3178C6]/50 hover:bg-[#3178C6]/10 text-[#3178C6]",
         icon: <FileCode2 size={32} strokeWidth={1.5} />,
       },
       {
         name: "Next.js",
+        usedIn: ["Street Stars", "este portfólio"],
         color: "hover:border-white/50 hover:bg-white/10 text-white",
         icon: <Triangle size={32} strokeWidth={1.5} />,
       },
       {
         name: "Tailwind CSS",
+        usedIn: ["Street Stars", "este portfólio"],
         color: "hover:border-[#38B2AC]/50 hover:bg-[#38B2AC]/10 text-[#38B2AC]",
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -119,6 +136,7 @@ const skillCategories = [
       },
       {
         name: "Framer Motion",
+        usedIn: ["este portfólio"],
         color: "hover:border-[#BB4BFF]/50 hover:bg-[#BB4BFF]/10 text-[#BB4BFF]",
         icon: <Sparkles size={32} strokeWidth={1.5} />,
       },
@@ -129,16 +147,19 @@ const skillCategories = [
     items: [
       {
         name: "Linux",
+        usedIn: ["AlertaSP", "Neotel"],
         color: "hover:border-[#FCC624]/50 hover:bg-[#FCC624]/10 text-[#FCC624]",
         icon: <Terminal size={32} strokeWidth={1.5} />,
       },
       {
         name: "Docker",
+        usedIn: ["SmartInventory"],
         color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
         icon: <Container size={32} strokeWidth={1.5} />,
       },
       {
         name: "Git",
+        usedIn: ["todos os projetos"],
         color: "hover:border-[#F05032]/50 hover:bg-[#F05032]/10 text-[#F05032]",
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -202,14 +223,28 @@ export default function Skills() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.05 }}
-                      className={`group relative flex flex-col items-center justify-center gap-4 overflow-hidden rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
+                      className="h-full"
                     >
-                      <div className="text-zinc-500 transition-all duration-300 group-hover:scale-110 group-hover:text-inherit">
-                        {skill.icon}
-                      </div>
-                      <span className="text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:text-inherit text-center">
-                        {skill.name}
-                      </span>
+                      <XRay
+                        radius={85}
+                        demo={idx === 0 && index === 0}
+                        className={`group h-full flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
+                        blueprint={
+                          <div className="flex h-full flex-col items-center justify-center gap-1.5 p-3 text-center">
+                            <span className="bp-label">{"// USADO EM"}</span>
+                            {skill.usedIn.map((u) => (
+                              <span key={u} className="font-mono text-[11px] text-purple-300">{u}</span>
+                            ))}
+                          </div>
+                        }
+                      >
+                        <div className="text-zinc-500 transition-all duration-300 group-hover:scale-110 group-hover:text-inherit">
+                          {skill.icon}
+                        </div>
+                        <span className="text-sm font-semibold text-zinc-400 transition-colors duration-300 group-hover:text-inherit text-center">
+                          {skill.name}
+                        </span>
+                      </XRay>
                     </motion.div>
                   ))}
                 </div>
