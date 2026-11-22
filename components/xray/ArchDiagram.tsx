@@ -1,9 +1,21 @@
-import type { Arch } from "./architectures";
+import { archFlows, type Arch } from "./architectures";
 
 const PURPLE = "#a855f7";
 
-export default function ArchDiagram({ arch }: { arch?: Arch }) {
+export default function ArchDiagram({ arch, compact }: { arch?: Arch; compact?: boolean }) {
   if (!arch) return null;
+
+  // Layout compacto (cards do mobile): conexões em lista, legível em pouca altura
+  if (compact)
+    return (
+      <div className="flex h-full w-full flex-col justify-center gap-1.5 p-4">
+        <span className="bp-label">{`// ARQUITETURA · ${arch.title}`}</span>
+        {archFlows(arch).map((f) => (
+          <span key={f} className="font-mono text-[11px] leading-tight text-purple-200">{f}</span>
+        ))}
+      </div>
+    );
+
   const byId = Object.fromEntries(arch.nodes.map((n) => [n.id, n]));
   const b = arch.boundary;
 

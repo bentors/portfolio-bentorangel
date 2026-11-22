@@ -227,6 +227,7 @@ export default function Skills() {
                     >
                       <XRay
                         radius={85}
+                        description={`Usado em: ${skill.usedIn.join(", ")}`}
                         demo={idx === 0 && index === 0}
                         className={`group h-full flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
                         blueprint={

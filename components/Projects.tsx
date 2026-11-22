@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
 import XRay from "@/components/xray/XRay";
 import ArchDiagram from "@/components/xray/ArchDiagram";
-import { architectures } from "@/components/xray/architectures";
+import { architectures, archFlows } from "@/components/xray/architectures";
 
 {/* ARRAY DE PROJETOS */}
 const projects = [
@@ -52,6 +52,12 @@ const projects = [
   },
 ];
 
+// Descrição textual da arquitetura (leitores de tela / foco pelo teclado)
+const archText = (id: string) => {
+  const a = architectures[id];
+  return a ? `Arquitetura ${a.title}: ${archFlows(a).join("; ")}` : undefined;
+};
+
 export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
@@ -95,7 +101,7 @@ export default function Projects() {
               }}
             >
               {/* Metade Superior: Imagem */}
-              <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" blueprint={<ArchDiagram arch={architectures[project.id]} />}>
+              <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" description={archText(project.id)} blueprint={<ArchDiagram arch={architectures[project.id]} compact />}>
                 <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 384px" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
               </XRay>
@@ -209,6 +215,7 @@ export default function Projects() {
               className="pointer-events-auto aspect-[4/5] w-full max-w-md rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]"
               radius={110}
               demo
+              description={archText(projects[hoveredIndex].id)}
               blueprint={<ArchDiagram arch={architectures[projects[hoveredIndex].id]} />}
             >
               {/* Todas as imagens ficam montadas; só o transform anima (sem remount nem blur) */}

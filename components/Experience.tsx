@@ -123,12 +123,13 @@ export default function Experience() {
             <XRay
               key={course.id}
               radius={170}
+              description={`Ficha técnica: ${course.specs.join("; ")}`}
               demo={i === 0}
               className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-[#0f0f0f]"
               blueprint={
                 <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center sm:p-10">
                   <span className="bp-label">{`// FICHA TÉCNICA · ${course.id}`}</span>
-                  <h3 className="font-mono text-lg font-bold text-purple-200">{course.title}</h3>
+                  <p className="font-mono text-lg font-bold text-purple-200">{course.title}</p>
                   <ul className="flex flex-col gap-2 font-mono text-xs text-purple-300/90">
                     {course.specs.map((l) => (
                       <li key={l}>› {l}</li>

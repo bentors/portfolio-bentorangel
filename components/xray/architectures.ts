@@ -78,3 +78,9 @@ export const architectures: Partial<Record<string, Arch>> = {
     ],
   },
 };
+
+/** Conexões em texto ("A → B"), usado no layout compacto e por leitores de tela. */
+export function archFlows(arch: Arch): string[] {
+  const label = (id: string) => arch.nodes.find((n) => n.id === id)?.label ?? id;
+  return arch.edges.map((e) => `${label(e.from)} → ${label(e.to)}${e.label ? ` (${e.label})` : ""}`);
+}
