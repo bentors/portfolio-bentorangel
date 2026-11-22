@@ -226,7 +226,7 @@ export default function Skills() {
                       className="h-full"
                     >
                       <XRay
-                        radius={70}
+                        radius={85}
                         demo={idx === 0 && index === 0}
                         className={`group h-full flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
                         blueprint={
