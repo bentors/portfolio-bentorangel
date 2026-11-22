@@ -27,7 +27,7 @@ export default function Contact() {
     },
     {
       name: "LinkedIn",
-      href: "https://linkedin.com/in/bento-rangel-1854432a6",
+      href: "https://www.linkedin.com/in/bentorangel/",
       icon: <Linkedin size={32} />,
       hoverBorderBg: "hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/5",
       hoverText: "group-hover:text-[#0A66C2]",
