@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
 
@@ -15,7 +15,7 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Firebase", "Tailwind", "Zod"],
     github: "https://github.com/bentors/site-streetstars",
     link: "https://streetstars.vercel.app/",
-    image: "/projects/streetstars.png",
+    image: "/projects/streetstars.webp",
   },
   {
     id: "02",
@@ -25,7 +25,7 @@ const projects = [
     tech: ["Java", "Spring Boot", "PostgreSQL", "React", "TypeScript"],
     github: "https://github.com/bentors/aurum-finance-api",
     link: "https://aurum-finance-api.onrender.com/swagger-ui/index.html",
-    image: "/projects/aurum.png",
+    image: "/projects/aurum.webp",
   },
   {
     id: "03",
@@ -35,7 +35,7 @@ const projects = [
     tech: ["Java", "Spring Boot", "PostgreSQL", "Linux", "Shell Script"],
     github: "https://github.com/bentors/alertasp-api-soa",
     link: "https://youtu.be/FV1CGLFQnpA",
-    image: "/projects/alertasp.jpg",
+    image: "/projects/alertasp.webp",
   },
   {
     id: "04",
@@ -45,7 +45,7 @@ const projects = [
     tech: ["Python", "scikit-learn", "Pandas", "FastAPI"],
     github: "https://github.com/bentors/Ford-Vision---IA-ML",
     link: "https://github.com/bentors/Ford-Vision---IA-ML",
-    image: "/projects/fordvision.png",
+    image: "/projects/fordvision.webp",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function Projects() {
             >
               {/* Metade Superior: Imagem */}
               <div className="relative h-48 sm:h-56 w-full border-b border-zinc-800">
-                <Image src={project.image} alt={project.title} fill className="object-cover" />
+                <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 384px" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
               </div>
 
@@ -203,24 +203,26 @@ export default function Projects() {
           {/* LADO DIREITO: A imagem fixa com Rolagem */}
           <div className="hidden lg:flex lg:col-span-5 sticky top-0 h-screen items-center justify-center pointer-events-none">
             <div className="relative aspect-[4/5] w-full max-w-md overflow-hidden rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]">
-              <AnimatePresence initial={false}>
+              {/* Todas as imagens ficam montadas; só o transform anima (sem remount nem blur) */}
+              {projects.map((project, index) => (
                 <motion.div
-                  key={hoveredIndex}
-                  initial={{ y: "-100%", opacity: 0.5, filter: "blur(4px)" }}
-                  animate={{ y: "0%", opacity: 1, filter: "blur(0px)" }}
-                  exit={{ y: "100%", opacity: 0.5, filter: "blur(4px)" }}
+                  key={project.id}
+                  initial={false}
+                  animate={{ y: index === hoveredIndex ? "0%" : index < hoveredIndex ? "-100%" : "100%" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-0"
+                  className="absolute inset-0 will-change-transform"
                 >
-                  <Image 
-                    src={projects[hoveredIndex].image} 
-                    alt="Preview do Projeto" 
-                    fill 
-                    className="object-cover" 
+                  <Image
+                    src={project.image}
+                    alt={`Preview do projeto ${project.title}`}
+                    fill
+                    sizes="448px"
+                    loading="eager"
+                    className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-[#050505]/20" />
                 </motion.div>
-              </AnimatePresence>
+              ))}
             </div>
           </div>
 

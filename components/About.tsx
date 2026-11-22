@@ -107,7 +107,7 @@ export default function About() {
             className="order-5 col-span-1 md:order-2 md:col-span-2 group relative aspect-square md:aspect-auto overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900"
           >
             <Image 
-              src="/fotopessoalBento.jpeg" 
+              src="/bento.jpg" 
               alt="Bento Rangel" 
               fill 
               className="object-cover transition-all duration-700 md:grayscale md:group-hover:scale-105 md:group-hover:grayscale-0"

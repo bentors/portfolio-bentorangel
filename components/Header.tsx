@@ -108,7 +108,7 @@ export default function Header() {
                 className="absolute left-0 flex items-center justify-center pointer-events-none"
               >
                 <div className={`relative h-9 w-9 overflow-hidden rounded-full border-2 border-zinc-700/50 transition-colors ${!isAtTop && 'pointer-events-auto hover:border-purple-500'}`}>
-                  <Image src="/fotopessoalBento.jpeg" alt="Bento" fill className="object-cover" />
+                  <Image src="/bento.jpg" alt="Bento" fill className="object-cover" />
                 </div>
               </motion.div>
             </Link>
