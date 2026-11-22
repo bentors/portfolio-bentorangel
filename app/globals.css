@@ -66,7 +66,7 @@ body {
   100% { --r: 0px; --x: 75%; --y: 50%; }
 }
 @keyframes xray-build {
-  0%, 40% { opacity: 1; }
+  0%, 60% { opacity: 1; }
   100% { opacity: 0; }
 }
 
@@ -75,7 +75,7 @@ body {
 }
 @media (hover: none) {
   .xray-layer { clip-path: none; opacity: 0; }
-  .xray[data-inview] .xray-layer { animation: xray-build 1.6s ease-out forwards; }
+  .xray[data-inview] .xray-layer { animation: xray-build 3s ease-out forwards; }
 }
 
 @media (prefers-reduced-motion: reduce) {

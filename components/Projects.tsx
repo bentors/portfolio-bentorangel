@@ -6,7 +6,7 @@ import Image from "next/image";
 import { ArrowUpRight, Github } from "lucide-react";
 import XRay from "@/components/xray/XRay";
 import ArchDiagram from "@/components/xray/ArchDiagram";
-import { architectures } from "@/components/xray/architectures";
+import { architectures, archFlows } from "@/components/xray/architectures";
 
 {/* ARRAY DE PROJETOS */}
 const projects = [
@@ -52,6 +52,12 @@ const projects = [
   },
 ];
 
+// Descrição textual da arquitetura (leitores de tela)
+const archText = (id: string) => {
+  const a = architectures[id];
+  return a ? `Arquitetura ${a.title}: ${archFlows(a).join("; ")}` : undefined;
+};
+
 export default function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState(0);
 
@@ -95,7 +101,7 @@ export default function Projects() {
               }}
             >
               {/* Metade Superior: Imagem */}
-              <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" blueprint={<ArchDiagram arch={architectures[project.id]} />}>
+              <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" description={archText(project.id)} blueprint={<ArchDiagram arch={architectures[project.id]} compact />}>
                 <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 384px" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
               </XRay>
@@ -169,6 +175,7 @@ export default function Projects() {
                   <p className="max-w-lg text-zinc-400 font-medium leading-relaxed transition-colors duration-300 group-hover:text-zinc-300">
                     {project.description}
                   </p>
+                  <span className="sr-only">{archText(project.id)}</span>
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
@@ -215,6 +222,7 @@ export default function Projects() {
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
+                  aria-hidden={index !== hoveredIndex}
                   initial={false}
                   animate={{ y: index === hoveredIndex ? "0%" : index < hoveredIndex ? "-100%" : "100%" }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
