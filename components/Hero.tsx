@@ -77,7 +77,7 @@ export default function Hero() {
                   <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" fill="transparent" />
                   <text className="text-[11px] font-bold uppercase tracking-[0.2em]">
                     <textPath href="#circlePath" startOffset="0%">
-                      Data • Software Engineer •
+                      Code • Software Engineer •
                     </textPath>
                   </text>
                 </svg>
@@ -96,10 +96,10 @@ export default function Hero() {
           className="mt-12 max-w-2xl md:pl-16"
         >
           <h2 className="text-xl md:text-2xl font-bold text-zinc-200 mb-4">
-            Data & Software Engineer.
+            Software Engineer.
           </h2>
           <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
-            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, e uma paixão por resolver problemas complexos através de arquiteturas limpas e decisões orientadas a dados. Eng. de Software na FIAP.
+            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, <span className="text-zinc-200">TypeScript</span> e uma paixão por resolver problemas complexos através de arquiteturas limpas e decisões orientadas a dados. Dev full stack na Neotel e Eng. de Software na FIAP.
           </p>
         </motion.div>
       </div>

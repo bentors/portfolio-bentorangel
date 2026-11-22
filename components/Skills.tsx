@@ -1,23 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Database, 
-  Coffee, 
-  Leaf, 
-  Box, 
-  Table2, 
-  FileSpreadsheet, 
-  BarChart3, 
-  Workflow, 
-  LineChart,
-  Zap,
-  ArrowRight
+import {
+  Coffee, Leaf, Server, Database, Box, Flame, DatabaseZap, Sheet, BrainCircuit,
+  Snowflake, BarChart3, FileCode2, Triangle, Sparkles, Terminal, Container,
 } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Back-end & Arquitetura",
+    title: "Back-end",
     items: [
       {
         name: "Java",
@@ -30,28 +21,29 @@ const skillCategories = [
         icon: <Leaf size={32} strokeWidth={1.5} />,
       },
       {
-        name: "SQL",
+        name: "Django",
+        color: "hover:border-[#44B78B]/50 hover:bg-[#44B78B]/10 text-[#44B78B]",
+        icon: <Server size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "PostgreSQL",
         color: "hover:border-[#336791]/50 hover:bg-[#336791]/10 text-[#336791]",
         icon: <Database size={32} strokeWidth={1.5} />,
       },
       {
         name: "MongoDB",
-        color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
+        color: "hover:border-[#47A248]/50 hover:bg-[#47A248]/10 text-[#47A248]",
         icon: <Box size={32} strokeWidth={1.5} />,
       },
       {
-        name: "Git",
-        color: "hover:border-[#F05032]/50 hover:bg-[#F05032]/10 text-[#F05032]",
-        icon: (
-          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
-            <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.775 2.775c.64-.219 1.383-.075 1.899.442.736.736.736 1.926 0 2.662-.736.736-1.926.736-2.662 0-.51-.51-.652-1.242-.44-1.882l-2.748-2.748v5.92c.218.21.358.503.358.828 0 .641-.52 1.161-1.161 1.161-.641 0-1.161-.52-1.161-1.161 0-.323.138-.614.353-.824V9.695c-.215-.21-.353-.502-.353-.823 0-.154.032-.301.087-.437L6.084 5.676 1.144 10.616c-.603.604-.603 1.583 0 2.189l10.479 10.478c.604.604 1.582.604 2.188 0l9.735-9.735c.603-.604.603-1.582 0-2.188z" />
-          </svg>
-        ),
+        name: "Firebase",
+        color: "hover:border-[#FFCA28]/50 hover:bg-[#FFCA28]/10 text-[#FFCA28]",
+        icon: <Flame size={32} strokeWidth={1.5} />,
       },
     ],
   },
   {
-    title: "Data & Analytics",
+    title: "Dados & Machine Learning",
     items: [
       {
         name: "Python",
@@ -63,24 +55,29 @@ const skillCategories = [
         ),
       },
       {
+        name: "SQL",
+        color: "hover:border-[#00A1E0]/50 hover:bg-[#00A1E0]/10 text-[#00A1E0]",
+        icon: <DatabaseZap size={32} strokeWidth={1.5} />,
+      },
+      {
         name: "Pandas",
         color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]",
-        icon: <Table2 size={32} strokeWidth={1.5} />,
+        icon: <Sheet size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "scikit-learn",
+        color: "hover:border-[#F7931E]/50 hover:bg-[#F7931E]/10 text-[#F7931E]",
+        icon: <BrainCircuit size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Snowflake",
+        color: "hover:border-[#29B5E8]/50 hover:bg-[#29B5E8]/10 text-[#29B5E8]",
+        icon: <Snowflake size={32} strokeWidth={1.5} />,
       },
       {
         name: "Power BI",
         color: "hover:border-[#F2C811]/50 hover:bg-[#F2C811]/10 text-[#F2C811]",
         icon: <BarChart3 size={32} strokeWidth={1.5} />,
-      },
-      {
-        name: "Excel",
-        color: "hover:border-[#217346]/50 hover:bg-[#217346]/10 text-[#217346]",
-        icon: <FileSpreadsheet size={32} strokeWidth={1.5} />,
-      },
-      {
-        name: "Power Automate",
-        color: "hover:border-[#0078D4]/50 hover:bg-[#0078D4]/10 text-[#0078D4]",
-        icon: <Workflow size={32} strokeWidth={1.5} />,
       },
     ],
   },
@@ -102,9 +99,14 @@ const skillCategories = [
         ),
       },
       {
-        name: "Vite",
-        color: "hover:border-[#646CFF]/50 hover:bg-[#646CFF]/10 text-[#646CFF]",
-        icon: <Zap size={32} strokeWidth={1.5} fill="currentColor" className="fill-transparent" />,
+        name: "TypeScript",
+        color: "hover:border-[#3178C6]/50 hover:bg-[#3178C6]/10 text-[#3178C6]",
+        icon: <FileCode2 size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Next.js",
+        color: "hover:border-white/50 hover:bg-white/10 text-white",
+        icon: <Triangle size={32} strokeWidth={1.5} />,
       },
       {
         name: "Tailwind CSS",
@@ -112,6 +114,35 @@ const skillCategories = [
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
             <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z" />
+          </svg>
+        ),
+      },
+      {
+        name: "Framer Motion",
+        color: "hover:border-[#BB4BFF]/50 hover:bg-[#BB4BFF]/10 text-[#BB4BFF]",
+        icon: <Sparkles size={32} strokeWidth={1.5} />,
+      },
+    ],
+  },
+  {
+    title: "Infra & Ferramentas",
+    items: [
+      {
+        name: "Linux",
+        color: "hover:border-[#FCC624]/50 hover:bg-[#FCC624]/10 text-[#FCC624]",
+        icon: <Terminal size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Docker",
+        color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
+        icon: <Container size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "Git",
+        color: "hover:border-[#F05032]/50 hover:bg-[#F05032]/10 text-[#F05032]",
+        icon: (
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
+            <path d="M23.546 10.93L13.067.452c-.604-.603-1.582-.603-2.188 0L8.708 2.627l2.76 2.76c.645-.215 1.379-.07 1.889.441.516.515.658 1.258.438 1.9l2.775 2.775c.64-.219 1.383-.075 1.899.442.736.736.736 1.926 0 2.662-.736.736-1.926.736-2.662 0-.51-.51-.652-1.242-.44-1.882l-2.748-2.748v5.92c.218.21.358.503.358.828 0 .641-.52 1.161-1.161 1.161-.641 0-1.161-.52-1.161-1.161 0-.323.138-.614.353-.824V9.695c-.215-.21-.353-.502-.353-.823 0-.154.032-.301.087-.437L6.084 5.676 1.144 10.616c-.603.604-.603 1.583 0 2.189l10.479 10.478c.604.604 1.582.604 2.188 0l9.735-9.735c.603-.604.603-1.582 0-2.188z" />
           </svg>
         ),
       },
@@ -141,7 +172,7 @@ export default function Skills() {
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
-            A fundação tecnológica que uso para construir motores robustos, analisar dados e criar interfaces ágeis.
+            As ferramentas que uso no dia a dia para construir back-ends robustos, trabalhar dados e criar interfaces ágeis.
           </p>
         </motion.div>
 

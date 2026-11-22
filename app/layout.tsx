@@ -6,14 +6,14 @@ import Footer from "../components/Footer";
 import ScrollReset from "../components/ScrollReset";
 
 export const metadata: Metadata = {
-  title: "Bento Rangel | Software Engineer & Data",
-  description: "Engenheiro de Software focado em arquitetura robusta, back-end escalável e dados. Conheça meus projetos e trajetória.",
-  keywords: ["Software Engineer", "Engenheiro de Software", "Java", "Python", "Data Engineering", "FIAP", "Street Stars"],
+  title: "Bento Rangel | Software Engineer",
+  description: "Engenheiro de Software full stack focado em arquitetura robusta, back-end escalável e dados. Conheça meus projetos e trajetória.",
+  keywords: ["Software Engineer", "Engenheiro de Software", "Java", "Python", "Django", "TypeScript", "Full Stack", "FIAP", "Street Stars"],
   authors: [{ name: "Bento Rangel" }],
   openGraph: {
     title: "Bento Rangel | Portfólio Profissional",
     description: "Explorando a intersecção entre código de alta performance e visão de negócio.",
-    url: "https://portfolio-bentorangel.vercel.app/", 
+    url: "https://bentorangel.vercel.app/", 
     siteName: "Bento Rangel Portfolio",
     images: [
       {

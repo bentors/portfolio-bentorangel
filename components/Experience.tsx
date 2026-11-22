@@ -1,21 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Code2, Database, Layout, MoveRight } from "lucide-react";
+import { GraduationCap, Code2, Database, BarChart3, Briefcase, Rocket, MoveRight } from "lucide-react";
 
-// Trocamos as experiências por Cursos e Diplomas
 const courses = [
   {
     id: "01",
-    period: "Graduação",
-    title: "Engenharia de Software",
-    institution: "FIAP",
-    icon: <GraduationCap size={24} />,
-    description: "Formação orientada a projetos e resolução de problemas. Base sólida em arquitetura de sistemas, design patterns e metodologias ágeis, com foco prático em construir aplicações corporativas escaláveis. (Conclusão: Dez/2027)",
-    tech: ["Arquitetura", "Design Patterns", "OOP"],
+    period: "Ago/2026 — Atual",
+    title: "Estágio em Desenvolvimento Full Stack",
+    institution: "Neotel",
+    icon: <Briefcase size={24} />,
+    description: "Desenvolvimento full stack em produto real: back-end em Django/Python e interfaces em React/TSX sobre PostgreSQL, em ambiente Linux.",
+    tech: ["Python", "Django", "TypeScript", "PostgreSQL", "Linux"],
   },
   {
     id: "02",
+    period: "Dez/2024 — Atual",
+    title: "Cofundador & Tech Lead",
+    institution: "Street Stars",
+    icon: <Rocket size={24} />,
+    description: "Responsável por toda a tecnologia da marca: e-commerce full stack, auditorias de segurança e de UX/SEO, e decisões de produto orientadas a conversão.",
+    tech: ["Next.js", "TypeScript", "Firebase", "Produto"],
+  },
+  {
+    id: "03",
+    period: "Jun/2023 — Jun/2026",
+    title: "Estagiário em Dados · Service Quality",
+    institution: "DHL Express",
+    icon: <Database size={24} />,
+    description: "No time de Service Quality, automatizei rotinas com Python e construí pipelines SQL/Snowflake que eliminaram horas de trabalho manual. Entrei como Jovem Aprendiz em Operações (Jun/2023 — Mai/2024) e fui efetivado como estagiário de dados.",
+    tech: ["Python", "SQL", "Snowflake", "Power BI"],
+  },
+  {
+    id: "04",
+    period: "Graduação",
+    title: "Engenharia de Software",
+    institution: "FIAP · Conclusão Dez/2027",
+    icon: <GraduationCap size={24} />,
+    description: "Formação orientada a projetos e resolução de problemas. Base sólida em arquitetura de sistemas, design patterns e metodologias ágeis, com foco prático em construir aplicações corporativas escaláveis.",
+    tech: ["Arquitetura", "Design Patterns", "OOP"],
+  },
+  {
+    id: "05",
     period: "Especialização",
     title: "Backend Java",
     institution: "Alura - 523h em andamento",
@@ -24,23 +50,14 @@ const courses = [
     tech: ["Java", "Spring Boot", "APIs", "OOP"],
   },
   {
-    id: "03",
+    id: "06",
     period: "Certificação",
     title: "Dados & Analytics",
     institution: "Python, Power BI & Big Data",
-    icon: <Database size={24} />,
+    icon: <BarChart3 size={24} />,
     description: "Capacitação voltada para a extração de inteligência de negócios. Domínio prático de Python para análise e automação, orquestração de rotinas ETL, manipulação de bancos SQL e construção de dashboards executivos.",
     tech: ["Python", "Pandas", "Power BI", "SQL"],
   },
-  {
-    id: "04",
-    period: "Complementar",
-    title: "Gestão & Processos",
-    institution: "Alura & DHL",
-    icon: <Layout size={24} />,
-    description: "Visão estratégica forjada na prática operacional de uma multinacional de logística. Compreensão profunda de como a tecnologia otimiza gargalos de negócios, gerando impacto real em eficiência e redução de custos.",
-    tech: ["Business Intelligence", "Processos", "Visão de produto"],
-  }
 ];
 
 export default function Experience() {
