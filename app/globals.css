@@ -1,6 +1,3 @@
-/* Importando a Fonte Satoshi do Fontshare */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
-
 /* Importação principal do Tailwind v4 */
 @import "tailwindcss";
 
@@ -19,7 +16,8 @@
 }
 
 body {
-  font-family: 'Satoshi', sans-serif;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: -0.02em;
   background-color: var(--color-page);
   color: #d4d4d8;
   
@@ -133,7 +131,6 @@ body {
   --color-purple-950: #18181b;
   --shader-line: 161 161 170; --shader-accent: 244 244 245;
 }
-:root[data-theme="mono"] body { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; letter-spacing: -0.02em; }
 
 /* Troca de tema suave (sem animar no carregamento) */
 :root.theme-anim, :root.theme-anim * { transition: background-color .4s, color .4s, border-color .4s !important; }

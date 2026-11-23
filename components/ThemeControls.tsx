@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const THEMES = ["mono", "dark", "light"] as const;
+const THEMES = ["dark", "light", "mono"] as const;
 type Theme = (typeof THEMES)[number];
 
 // Alterna o modo planta e sincroniza os diagramas SMIL com ele
@@ -28,10 +28,10 @@ const subscribe = (cb: () => void) => {
   obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   return () => obs.disconnect();
 };
-const getTheme = () => (document.documentElement.dataset.theme as Theme) || "mono";
+const getTheme = () => (document.documentElement.dataset.theme as Theme) || "dark";
 
 export default function ThemeControls() {
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "mono" as Theme);
+  const theme = useSyncExternalStore(subscribe, getTheme, () => "dark" as Theme);
   const [plan, setPlanState] = useState(false);
 
   useEffect(() => {
