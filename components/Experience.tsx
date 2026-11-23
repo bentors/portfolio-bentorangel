@@ -1,5 +1,6 @@
 "use client";
 
+import RevealText from "@/components/RevealText";
 import XRay from "@/components/xray/XRay";
 import { motion } from "framer-motion";
 import { GraduationCap, Code2, Database, BarChart3, Briefcase, Rocket, MoveRight } from "lucide-react";
@@ -85,7 +86,7 @@ export default function Experience() {
               <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Jornada</span>
             </div>
             <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
-              Minha trajetória<span className="text-zinc-600">.</span>
+              <RevealText text="Minha trajetória" /><span className="text-zinc-600">.</span>
             </h2>
           </div>
           <div className="flex items-center gap-3 text-zinc-500 md:pb-2">
@@ -125,7 +126,7 @@ export default function Experience() {
               radius={170}
               description={`Ficha técnica: ${course.specs.join("; ")}`}
               demo={i === 0}
-              className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-[#0f0f0f]"
+              className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-surface p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-surface-2"
               blueprint={
                 <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center sm:p-10">
                   <span className="bp-label">{`// FICHA TÉCNICA · ${course.id}`}</span>
@@ -167,7 +168,7 @@ export default function Experience() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {course.tech.map((t) => (
-                    <span key={t} className="rounded-full border border-zinc-800 bg-[#050505] px-4 py-1.5 text-xs font-semibold text-zinc-500 transition-colors group-hover:border-zinc-700 group-hover:text-zinc-300">
+                    <span key={t} className="rounded-full border border-zinc-800 bg-base px-4 py-1.5 text-xs font-semibold text-zinc-500 transition-colors group-hover:border-zinc-700 group-hover:text-zinc-300">
                       {t}
                     </span>
                   ))}

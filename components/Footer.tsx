@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-10 bg-[#050505] border-t border-zinc-800/50 py-10">
+    <footer className="relative z-10 bg-base border-t border-zinc-800/50 py-10">
       
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-4 sm:px-6 md:flex-row">
         
@@ -22,6 +22,14 @@ export default function Footer() {
           </Link>
           <p className="text-sm font-medium text-zinc-500">
             © {currentYear} • Desenvolvido por Bento Rangel
+          </p>
+          <p className="flex items-center gap-2 font-mono text-[11px] text-zinc-500">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            todos os sistemas operacionais · build {process.env.NEXT_PUBLIC_BUILD_SHA} · deploy{" "}
+            {new Date(process.env.NEXT_PUBLIC_BUILD_TIME!).toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}
           </p>
         </div>
 
@@ -57,7 +65,7 @@ export default function Footer() {
         {/* LADO DIREITO: Botão Voltar ao Topo */}
         <button
           onClick={scrollToTop}
-          className="group flex items-center gap-2 rounded-full border border-zinc-800 bg-[#0a0a0a] px-6 py-3 text-xs font-bold uppercase tracking-widest text-zinc-400 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
+          className="group flex items-center gap-2 rounded-full border border-zinc-800 bg-surface px-6 py-3 text-xs font-bold uppercase tracking-widest text-zinc-400 transition-all duration-300 hover:border-purple-500/50 hover:text-purple-400 hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
           aria-label="Voltar ao topo da página"
         >
           Voltar ao topo

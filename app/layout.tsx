@@ -4,6 +4,7 @@ import CustomCursor from "../components/CustomCursor";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollReset from "../components/ScrollReset";
+import ThemeControls from "../components/ThemeControls";
 
 export const metadata: Metadata = {
   title: "Bento Rangel | Software Engineer",
@@ -44,13 +45,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <body className="bg-zinc-950 text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        {/* Aplica o tema salvo antes da pintura (sem flash) */}
+        <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}` }} />
+      </head>
+      <body className="bg-base text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
         <ScrollReset />
         <CustomCursor />
         <Header />
         {children}
         <Footer />
+        <ThemeControls />
       </body>
     </html>
   );

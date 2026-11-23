@@ -84,7 +84,7 @@ export default function Header() {
           className={`relative pointer-events-auto flex items-center justify-between overflow-hidden transition-colors duration-500 ${
             isAtTop
               ? "w-full max-w-5xl rounded-none border-b border-transparent bg-transparent py-2 px-2 shadow-none backdrop-blur-none"
-              : "w-full md:w-auto max-w-full gap-6 rounded-full border border-zinc-800/60 bg-[#050505]/80 px-4 py-2 shadow-2xl backdrop-blur-md"
+              : "w-full md:w-auto max-w-full gap-6 rounded-full border border-zinc-800/60 bg-base/80 px-4 py-2 shadow-2xl backdrop-blur-md"
           }`}
         >
           
@@ -127,6 +127,7 @@ export default function Header() {
                     isActive ? "text-white" : isAtTop ? "text-zinc-400" : "text-zinc-300"
                   }`}
                 >
+                  <span className="mr-1.5 font-mono text-[10px] text-zinc-600">{String(navLinks.indexOf(link) + 1).padStart(2, "0")}</span>
                   {link.name}
                   {isActive && (
                     <motion.div
@@ -191,7 +192,7 @@ export default function Header() {
       {/* OVERLAY MOBILE */}
       <div
         className={`fixed inset-0 z-[90] flex flex-col justify-center px-8 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] md:hidden ${
-          isOpen ? "bg-[#050505]/95 backdrop-blur-xl opacity-100 pointer-events-auto" : "bg-[#050505]/0 opacity-0 pointer-events-none"
+          isOpen ? "bg-base/95 backdrop-blur-xl opacity-100 pointer-events-auto" : "bg-base/0 opacity-0 pointer-events-none"
         }`}
       >
         <div className="flex flex-col items-start gap-6">
@@ -207,6 +208,7 @@ export default function Header() {
                   isOpen ? "translate-x-0 opacity-100" : "-translate-x-8 opacity-0"
                 } ${isActive ? "text-white" : "text-zinc-600"}`}
               >
+                <span className="mr-3 align-top font-mono text-sm text-purple-500">{String(i + 1).padStart(2, "0")}</span>
                 {link.name}
               </Link>
             );

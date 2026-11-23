@@ -15,7 +15,9 @@ type XRayProps = {
 
 // Pausa/retoma as animações SMIL (pacotes dos diagramas) dentro da camada
 const setSvgPlaying = (el: HTMLElement, on: boolean) =>
-  el.querySelectorAll<SVGSVGElement>(".xray-layer svg").forEach((s) => (on ? s.unpauseAnimations() : s.pauseAnimations()));
+  el.querySelectorAll<SVGSVGElement>(".xray-layer svg").forEach((s) =>
+    on || "plan" in document.documentElement.dataset ? s.unpauseAnimations() : s.pauseAnimations(),
+  );
 
 // Animações CSS que revelam a planta sozinhas (demo no desktop, build no touch)
 const isReveal = (name: string) => name === "xray-demo" || name === "xray-build";

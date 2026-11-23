@@ -1,5 +1,6 @@
 "use client";
 
+import RevealText from "@/components/RevealText";
 import { motion } from "framer-motion";
 import { Mail, Github, Linkedin } from "lucide-react";
 
@@ -58,7 +59,7 @@ export default function Contact() {
               <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Próximos Passos</span>
             </div>
             <h2 className="text-4xl font-black text-white sm:text-6xl tracking-tighter mb-4">
-              Vamos conversar<span className="text-purple-500">.</span>
+              <RevealText text="Vamos conversar" /><span className="text-purple-500">.</span>
             </h2>
             <p className="max-w-2xl text-zinc-400 font-medium text-base md:text-lg">
               Aberto a oportunidades em engenharia de software e dados. Se você busca alguém que constrói sistemas sólidos, aprende rápido e entrega resultado, pode me chamar. Respondo mais rápido que o build do Java.
@@ -80,7 +81,7 @@ export default function Contact() {
               href={contact.href}
               target="_blank"
               rel="noreferrer"
-              className={`group flex flex-col items-center justify-center gap-4 rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] py-10 px-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${contact.hoverBorderBg}`}
+              className={`group flex flex-col items-center justify-center gap-4 rounded-[2rem] border border-zinc-800 bg-surface py-10 px-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${contact.hoverBorderBg}`}
             >
               <div className={`text-zinc-500 transition-colors duration-300 ${contact.hoverText}`}>
                 {contact.icon}

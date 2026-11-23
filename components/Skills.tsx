@@ -1,5 +1,6 @@
 "use client";
 
+import RevealText from "@/components/RevealText";
 import XRay from "@/components/xray/XRay";
 import { motion } from "framer-motion";
 import {
@@ -189,7 +190,7 @@ export default function Skills() {
               <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Arsenal</span>
             </div>
             <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
-              Stacks<span className="text-zinc-600">.</span>
+              <RevealText text="Stacks" /><span className="text-zinc-600">.</span>
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
@@ -229,7 +230,7 @@ export default function Skills() {
                         radius={85}
                         description={`Usado em: ${skill.usedIn.join(", ")}`}
                         demo={idx === 0 && index === 0}
-                        className={`group h-full flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800 bg-[#0a0a0a] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
+                        className={`group h-full flex flex-col items-center justify-center gap-4 rounded-2xl border border-zinc-800 bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${skill.color}`}
                         blueprint={
                           <div className="flex h-full flex-col items-center justify-center gap-1.5 p-3 text-center">
                             <span className="bp-label">{"// USADO EM"}</span>
