@@ -16,7 +16,7 @@
 }
 
 body {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-family: var(--font-site), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: -0.02em;
   background-color: var(--color-page);
   color: #d4d4d8;
