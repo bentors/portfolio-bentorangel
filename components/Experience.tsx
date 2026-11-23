@@ -168,7 +168,7 @@ export default function Experience() {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {course.tech.map((t) => (
-                    <span key={t} className="rounded-full border border-zinc-800 bg-base px-4 py-1.5 text-xs font-semibold text-zinc-500 transition-colors group-hover:border-zinc-700 group-hover:text-zinc-300">
+                    <span key={t} className="rounded-full border border-zinc-800 bg-page px-4 py-1.5 text-xs font-semibold text-zinc-500 transition-colors group-hover:border-zinc-700 group-hover:text-zinc-300">
                       {t}
                     </span>
                   ))}

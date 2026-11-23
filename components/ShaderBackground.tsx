@@ -7,7 +7,7 @@ import { useEffect, useRef } from "react";
 const FRAG = `
 precision mediump float;
 uniform vec2 uRes;
-uniform float uTime, uScroll, uPlan;
+uniform float uTime, uScroll, uPlan, uLens;
 uniform vec2 uMouse;
 uniform vec3 uBg, uLine, uAccent;
 
@@ -25,7 +25,7 @@ float packet(float along, float across, float lane, float cell) {
 void main() {
   vec2 px = vec2(gl_FragCoord.x, uRes.y - gl_FragCoord.y);
   vec2 d = px - uMouse;
-  float lens = exp(-dot(d, d) / (2.0 * 170.0 * 170.0));
+  float lens = uLens * exp(-dot(d, d) / (2.0 * 170.0 * 170.0));
   vec2 p = px - d * lens * 0.18;          // leve distorção sob o cursor
   p.y += uScroll * 0.35;                   // parallax com o scroll
 
@@ -83,7 +83,7 @@ export default function ShaderBackground() {
     gl.vertexAttribPointer(0, 2, gl.FLOAT, false, 0, 0);
 
     const u = (n: string) => gl.getUniformLocation(prog, n);
-    const uRes = u("uRes"), uTime = u("uTime"), uScroll = u("uScroll"), uMouse = u("uMouse"), uPlan = u("uPlan");
+    const uRes = u("uRes"), uTime = u("uTime"), uScroll = u("uScroll"), uMouse = u("uMouse"), uPlan = u("uPlan"), uLens = u("uLens");
 
     const setColors = () => {
       gl.uniform3fv(u("uBg"), readRgb("--shader-bg"));
@@ -115,6 +115,8 @@ export default function ShaderBackground() {
       mouse.y += (mouse.ty - mouse.y) * 0.08;
       gl.uniform1f(uTime, still ? 0 : t / 1000);
       gl.uniform1f(uScroll, scrollY);
+      // Lente só no hero: some conforme a primeira tela sai de vista
+      gl.uniform1f(uLens, Math.max(0, 1 - scrollY / (innerHeight * 0.7)));
       gl.uniform2f(uMouse, mouse.x, mouse.y);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
     };

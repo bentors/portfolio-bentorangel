@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 
-const THEMES = ["dark", "light", "mono"] as const;
+const THEMES = ["mono", "dark", "light"] as const;
 type Theme = (typeof THEMES)[number];
 
 // Alterna o modo planta e sincroniza os diagramas SMIL com ele
@@ -28,10 +28,10 @@ const subscribe = (cb: () => void) => {
   obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
   return () => obs.disconnect();
 };
-const getTheme = () => (document.documentElement.dataset.theme as Theme) || "dark";
+const getTheme = () => (document.documentElement.dataset.theme as Theme) || "mono";
 
 export default function ThemeControls() {
-  const theme = useSyncExternalStore(subscribe, getTheme, () => "dark" as Theme);
+  const theme = useSyncExternalStore(subscribe, getTheme, () => "mono" as Theme);
   const [plan, setPlanState] = useState(false);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function ThemeControls() {
     `px-2 py-1 rounded-full transition-colors ${active ? "bg-zinc-100 text-zinc-950" : "text-zinc-500 hover:text-zinc-200"}`;
 
   return (
-    <div className="fixed bottom-4 right-4 z-[95] flex items-center gap-1 rounded-full border border-zinc-800 bg-base/80 p-1 font-mono text-[11px] backdrop-blur-md">
+    <div className="fixed bottom-4 right-4 z-[95] flex items-center gap-1 rounded-full border border-zinc-800 bg-page/80 p-1 font-mono text-[11px] backdrop-blur-md">
       <div role="radiogroup" aria-label="Tema" className="flex">
         {THEMES.map((t) => (
           <button key={t} role="radio" aria-checked={theme === t} onClick={() => applyTheme(t)} className={btn(theme === t)}>

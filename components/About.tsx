@@ -113,7 +113,7 @@ export default function About() {
               className="object-cover transition-all duration-700 md:grayscale md:group-hover:scale-105 md:group-hover:grayscale-0"
               sizes="(max-width: 768px) 50vw, 33vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-base/80 via-transparent to-transparent opacity-60 transition-opacity md:group-hover:opacity-20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-page/80 via-transparent to-transparent opacity-60 transition-opacity md:group-hover:opacity-20" />
           </motion.div>
 
           {/* CARD 6: CTA */}

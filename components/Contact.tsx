@@ -12,8 +12,8 @@ export default function Contact() {
       name: "E-mail",
       href: "mailto:bento.rangel05@gmail.com",
       icon: <Mail size={32} />,
-      hoverBorderBg: "hover:border-purple-500/50 hover:bg-purple-500/5",
-      hoverText: "group-hover:text-purple-400",
+      hoverBorderBg: "hover:border-[#EA4335]/50 hover:bg-[#EA4335]/5",
+      hoverText: "group-hover:text-[#EA4335]",
     },
     {
       name: "WhatsApp",

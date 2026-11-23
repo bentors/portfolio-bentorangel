@@ -237,7 +237,7 @@ export default function Projects() {
                     loading="eager"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-base/80 via-transparent to-base/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-page/80 via-transparent to-page/20" />
                 </motion.div>
               ))}
             </XRay>

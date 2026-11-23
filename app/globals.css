@@ -8,7 +8,7 @@
 @theme {
   --animate-gradient: gradient 8s linear infinite;
   
-  --color-base: #050505;
+  --color-page: #050505;
   --color-surface: #0a0a0a;
   --color-surface-2: #0f0f0f;
 
@@ -20,7 +20,7 @@
 
 body {
   font-family: 'Satoshi', sans-serif;
-  background-color: var(--color-base);
+  background-color: var(--color-page);
   color: #d4d4d8;
   
   /* Esconde o cursor padrão para usarmos o nosso CustomCursor */
@@ -100,7 +100,7 @@ body {
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-base: #f6f5f2;
+  --color-page: #f6f5f2;
   --color-surface: #ffffff;
   --color-surface-2: #f0efec;
   --color-white: #09090b;
@@ -137,6 +137,13 @@ body {
 
 /* Troca de tema suave (sem animar no carregamento) */
 :root.theme-anim, :root.theme-anim * { transition: background-color .4s, color .4s, border-color .4s !important; }
+
+/* A planta é sempre roxa, mesmo no tema mono */
+.blueprint {
+  --color-purple-200: oklch(90.2% 0.063 306.703);
+  --color-purple-300: oklch(82.7% 0.119 306.383);
+}
+:root[data-plan]:not([data-theme="light"]) { --shader-line: 168 85 247; --shader-accent: 192 132 252; }
 
 /* ---- Modo planta: o site inteiro em raio-x ---- */
 :root[data-plan] .xray-layer { clip-path: none !important; opacity: 1 !important; animation: none !important; display: block !important; }

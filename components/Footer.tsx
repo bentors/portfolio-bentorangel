@@ -11,7 +11,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative z-10 bg-base border-t border-zinc-800/50 py-10">
+    <footer className="relative z-10 bg-page border-t border-zinc-800/50 py-10">
       
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-4 sm:px-6 md:flex-row">
         
@@ -55,7 +55,7 @@ export default function Footer() {
           </a>
           <a 
             href="mailto:bento.rangel05@gmail.com" 
-            className="text-zinc-500 transition-colors hover:text-purple-400"
+            className="text-zinc-500 transition-colors hover:text-[#EA4335]"
             aria-label="Email"
           >
             <Mail size={22} />

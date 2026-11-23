@@ -45,12 +45,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="pt-BR" className="scroll-smooth" data-theme="mono" suppressHydrationWarning>
       <head>
         {/* Aplica o tema salvo antes da pintura (sem flash) */}
         <script dangerouslySetInnerHTML={{ __html: `try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t}catch(e){}` }} />
       </head>
-      <body className="bg-base text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+      <body className="bg-page text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
         <ScrollReset />
         <CustomCursor />
         <Header />
