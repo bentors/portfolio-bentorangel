@@ -1,6 +1,3 @@
-/* Importando a Fonte Satoshi do Fontshare */
-@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
-
 /* Importação principal do Tailwind v4 */
 @import "tailwindcss";
 
@@ -8,6 +5,10 @@
 @theme {
   --animate-gradient: gradient 8s linear infinite;
   
+  --color-page: #050505;
+  --color-surface: #0a0a0a;
+  --color-surface-2: #0f0f0f;
+
   @keyframes gradient {
     0%, 100% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -15,9 +16,10 @@
 }
 
 body {
-  font-family: 'Satoshi', sans-serif;
-  background-color: #050505;
-  color: #d4d4d8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: -0.02em;
+  background-color: var(--color-page);
+  color: var(--color-zinc-300);
   
   /* Esconde o cursor padrão para usarmos o nosso CustomCursor */
   cursor: none; 
@@ -89,3 +91,56 @@ body {
   .xray-layer { transition: none; }
   .xray-packet { display: none; }
 }
+
+/* ---- Temas (dark padrão · light · mono) ----
+   Remapeia as escalas do Tailwind; componentes não precisam saber do tema. */
+:root { --shader-bg: 5 5 5; --shader-line: 168 85 247; --shader-accent: 192 132 252; color-scheme: dark; }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-page: #f6f5f2;
+  --color-surface: #ffffff;
+  --color-surface-2: #f0efec;
+  --color-white: #09090b;
+  --color-black: #ffffff;
+  --color-zinc-50: oklch(14.1% 0.005 285.823);
+  --color-zinc-100: oklch(21% 0.006 285.885);
+  --color-zinc-200: oklch(27.4% 0.006 286.033);
+  --color-zinc-300: oklch(37% 0.013 285.805);
+  --color-zinc-400: oklch(44.2% 0.017 285.786);
+  --color-zinc-500: oklch(55.2% 0.016 285.938);
+  --color-zinc-600: oklch(65% 0.015 286.067);
+  --color-zinc-700: oklch(82% 0.006 286.286);
+  --color-zinc-800: oklch(90% 0.004 286.32);
+  --color-zinc-900: oklch(95% 0.001 286.375);
+  --color-zinc-950: oklch(98.5% 0 0);
+  --shader-bg: 246 245 242; --shader-line: 124 58 237; --shader-accent: 147 51 234;
+}
+
+:root[data-theme="mono"] {
+  --color-purple-50: #fafafa;
+  --color-purple-100: #f4f4f5;
+  --color-purple-200: #e4e4e7;
+  --color-purple-300: #d4d4d8;
+  --color-purple-400: #e4e4e7;
+  --color-purple-500: #a1a1aa;
+  --color-purple-600: #71717a;
+  --color-purple-700: #52525b;
+  --color-purple-800: #3f3f46;
+  --color-purple-900: #27272a;
+  --color-purple-950: #18181b;
+  --shader-line: 161 161 170; --shader-accent: 244 244 245;
+}
+
+/* Mono: fonte e espaçamento próprios (Geist Mono) */
+:root[data-theme="mono"] body { font-family: var(--font-site), ui-monospace, monospace; letter-spacing: 0; }
+
+/* A planta é sempre roxa, mesmo no tema mono */
+.blueprint {
+  --color-purple-200: oklch(90.2% 0.063 306.703);
+  --color-purple-300: oklch(82.7% 0.119 306.383);
+}
+:root[data-plan]:not([data-theme="light"]) { --shader-line: 168 85 247; --shader-accent: 192 132 252; }
+
+/* ---- Modo planta: o site inteiro em raio-x ---- */
+:root[data-plan] .xray-layer { clip-path: none !important; opacity: 1 !important; animation: none !important; display: block !important; }

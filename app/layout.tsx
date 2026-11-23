@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { Geist_Mono } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "../components/CustomCursor";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollReset from "../components/ScrollReset";
+import ThemeControls from "../components/ThemeControls";
+
+// Alternativa livre (OFL) à PP Neue Montreal Mono do p5aholic
+const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-site" });
 
 export const metadata: Metadata = {
   title: "Bento Rangel | Software Engineer",
@@ -44,13 +49,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
-      <body className="bg-zinc-950 text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
+    <html lang="pt-BR" className={`scroll-smooth ${mono.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Tema salvo ou, sem escolha, o do sistema; aplicado antes da pintura (sem flash) */}
+        <script dangerouslySetInnerHTML={{ __html: `try{document.documentElement.dataset.theme=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: light)").matches?"light":"dark")}catch(e){}` }} />
+      </head>
+      <body className="bg-page text-zinc-300 antialiased selection:bg-purple-500/30 selection:text-purple-200">
         <ScrollReset />
         <CustomCursor />
         <Header />
         {children}
         <Footer />
+        <ThemeControls />
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import RevealText from "@/components/RevealText";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -78,7 +79,7 @@ export default function Projects() {
               <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Cases de Sucesso</span>
             </div>
             <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
-              Trabalhos<span className="text-zinc-600">.</span>
+              <RevealText text="Trabalhos" /><span className="text-zinc-600">.</span>
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
@@ -94,7 +95,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={`mobile-${project.id}`}
-              className="sticky w-full max-w-sm mx-auto rounded-[2rem] border-t border-zinc-800 bg-[#0a0a0a] shadow-[0_-15px_40px_-15px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col"
+              className="sticky w-full max-w-sm mx-auto rounded-[2rem] border-t border-zinc-800 bg-surface shadow-[0_-15px_40px_-15px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col"
               style={{
                 top: `calc(15vh + ${index * 24}px)`,
                 marginBottom: index === projects.length - 1 ? '0' : '40vh',
@@ -103,11 +104,11 @@ export default function Projects() {
               {/* Metade Superior: Imagem */}
               <XRay className="h-48 sm:h-56 w-full border-b border-zinc-800" description={archText(project.id)} blueprint={<ArchDiagram arch={architectures[project.id]} compact />}>
                 <Image src={project.image} alt={project.title} fill sizes="(max-width: 640px) 100vw, 384px" className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
               </XRay>
 
               {/* Metade Inferior: Textos Compactos */}
-              <div className="flex flex-col p-6 sm:p-8 gap-4 relative z-10 bg-[#0a0a0a]">
+              <div className="flex flex-col p-6 sm:p-8 gap-4 relative z-10 bg-surface">
                 <div className="flex items-center gap-3 text-purple-400">
                   <span className="font-mono text-sm font-bold">{project.id}</span>
                   <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest">{project.subtitle}</span>
@@ -179,7 +180,7 @@ export default function Projects() {
 
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((t) => (
-                      <span key={`tech-${t}`} className="rounded-full bg-[#0a0a0a] border border-zinc-800 px-4 py-1.5 text-xs font-semibold text-zinc-400 transition-colors duration-300 group-hover:border-purple-500/30 group-hover:text-zinc-200">
+                      <span key={`tech-${t}`} className="rounded-full bg-surface border border-zinc-800 px-4 py-1.5 text-xs font-semibold text-zinc-400 transition-colors duration-300 group-hover:border-purple-500/30 group-hover:text-zinc-200">
                         {t}
                       </span>
                     ))}
@@ -213,7 +214,7 @@ export default function Projects() {
           {/* LADO DIREITO: A imagem fixa com Rolagem */}
           <div className="hidden lg:flex lg:col-span-5 sticky top-0 h-screen items-center justify-center pointer-events-none">
             <XRay
-              className="pointer-events-auto aspect-[4/5] w-full max-w-md rounded-[2rem] border border-zinc-800 bg-[#0a0a0a] shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+              className="pointer-events-auto aspect-[4/5] w-full max-w-md rounded-[2rem] border border-zinc-800 bg-surface shadow-[0_0_50px_rgba(0,0,0,0.5)]"
               radius={110}
               demo
               blueprint={<ArchDiagram arch={architectures[projects[hoveredIndex].id]} />}
@@ -236,7 +237,7 @@ export default function Projects() {
                     loading="eager"
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-[#050505]/20" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-page/80 via-transparent to-page/20" />
                 </motion.div>
               ))}
             </XRay>
