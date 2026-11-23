@@ -5,7 +5,11 @@ import { useEffect, useRef } from "react";
 // Fundo "rede viva": grade blueprint em GLSL com nós, pacotes trafegando
 // pelas linhas e uma lente que segue o cursor. Cores vêm do tema (CSS vars).
 const FRAG = `
+#ifdef GL_FRAGMENT_PRECISION_HIGH
+precision highp float;
+#else
 precision mediump float;
+#endif
 uniform vec2 uRes;
 uniform float uTime, uScroll, uPlan, uLens;
 uniform vec2 uMouse;
@@ -101,8 +105,8 @@ export default function ShaderBackground() {
       canvas.height = innerHeight;
       gl.viewport(0, 0, canvas.width, canvas.height);
       gl.uniform2f(uRes, canvas.width, canvas.height);
+      if (still) draw(0); // redimensionar limpa o buffer
     };
-    resize();
 
     // Lente começa fora da tela: só aparece quando há um ponteiro de verdade
     const mouse = { x: -1e4, y: -1e4, tx: -1e4, ty: -1e4 };
@@ -113,7 +117,7 @@ export default function ShaderBackground() {
     const draw = (t: number) => {
       mouse.x += (mouse.tx - mouse.x) * 0.08;
       mouse.y += (mouse.ty - mouse.y) * 0.08;
-      gl.uniform1f(uTime, still ? 0 : t / 1000);
+      gl.uniform1f(uTime, still ? 0 : (t / 1000) % 600); // limita a magnitude (precisão em GPUs móveis)
       gl.uniform1f(uScroll, scrollY);
       // Lente só no hero: some conforme a primeira tela sai de vista
       gl.uniform1f(uLens, Math.max(0, 1 - scrollY / (innerHeight * 0.7)));
@@ -126,21 +130,22 @@ export default function ShaderBackground() {
       if (!document.hidden && !still) raf = requestAnimationFrame(loop);
     };
 
+    const redraw = () => draw(0);
+    resize();
     addEventListener("resize", resize);
-    addEventListener("pointermove", onMove);
-    document.addEventListener("visibilitychange", onVisible);
     if (still) {
-      const redraw = () => draw(0);
       addEventListener("scroll", redraw, { passive: true });
-      redraw();
-      return () => { removeEventListener("scroll", redraw); removeEventListener("resize", resize); themeObs.disconnect(); };
+    } else {
+      addEventListener("pointermove", onMove);
+      document.addEventListener("visibilitychange", onVisible);
+      raf = requestAnimationFrame(loop);
     }
-    raf = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(raf);
       themeObs.disconnect();
       removeEventListener("resize", resize);
+      removeEventListener("scroll", redraw);
       removeEventListener("pointermove", onMove);
       document.removeEventListener("visibilitychange", onVisible);
     };

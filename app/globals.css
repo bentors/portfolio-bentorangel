@@ -19,7 +19,7 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   letter-spacing: -0.02em;
   background-color: var(--color-page);
-  color: #d4d4d8;
+  color: var(--color-zinc-300);
   
   /* Esconde o cursor padrão para usarmos o nosso CustomCursor */
   cursor: none; 
@@ -134,9 +134,6 @@ body {
 
 /* Mono: fonte e espaçamento próprios (Geist Mono) */
 :root[data-theme="mono"] body { font-family: var(--font-site), ui-monospace, monospace; letter-spacing: 0; }
-
-/* Troca de tema suave (sem animar no carregamento) */
-:root.theme-anim, :root.theme-anim * { transition: background-color .4s, color .4s, border-color .4s !important; }
 
 /* A planta é sempre roxa, mesmo no tema mono */
 .blueprint {

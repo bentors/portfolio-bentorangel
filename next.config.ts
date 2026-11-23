@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 import { execSync } from "node:child_process";
 
-// Commit e horário do build, exibidos no status do rodapé
+// Commit e horÃ¡rio do build, exibidos no status do rodapÃ©
 const sha = process.env.VERCEL_GIT_COMMIT_SHA ?? (() => {
   try { return execSync("git rev-parse HEAD").toString().trim(); } catch { return "local"; }
 })();

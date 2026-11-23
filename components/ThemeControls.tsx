@@ -13,14 +13,12 @@ const setPlan = (on: boolean) => {
   document.querySelectorAll<SVGSVGElement>(".xray-layer svg").forEach((s) => (on ? s.unpauseAnimations() : s.pauseAnimations()));
 };
 
-// Troca o tema com transição curta e salva a escolha
+// Troca o tema e salva a escolha (storage pode estar bloqueado)
 const applyTheme = (t: Theme) => {
-  const root = document.documentElement;
-  root.classList.add("theme-anim");
-  root.dataset.theme = t;
-  localStorage.setItem("theme", t);
-  setTimeout(() => root.classList.remove("theme-anim"), 450);
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("theme", t); } catch {}
 };
+const savedTheme = () => { try { return localStorage.getItem("theme"); } catch { return null; } };
 
 // Tema lido direto do <html> (já aplicado pelo script inline antes da hidratação)
 const subscribe = (cb: () => void) => {
@@ -40,8 +38,12 @@ export default function ThemeControls() {
       if ((e.target as HTMLElement).closest("input, textarea, [contenteditable]")) return;
       setPlanState((p) => !p);
     };
+    // Sem escolha salva, acompanha o sistema quando ele muda de claro/escuro
+    const mq = matchMedia("(prefers-color-scheme: light)");
+    const onScheme = () => { if (!savedTheme()) document.documentElement.dataset.theme = mq.matches ? "light" : "dark"; };
     addEventListener("keydown", onKey);
-    return () => removeEventListener("keydown", onKey);
+    mq.addEventListener("change", onScheme);
+    return () => { removeEventListener("keydown", onKey); mq.removeEventListener("change", onScheme); };
   }, []);
 
   useEffect(() => setPlan(plan), [plan]);
