@@ -94,7 +94,7 @@ body {
 
 /* ---- Temas (dark padrão · light · mono) ----
    Remapeia as escalas do Tailwind; componentes não precisam saber do tema. */
-:root { --shader-bg: 5 5 5; --shader-line: 168 85 247; --shader-accent: 192 132 252; color-scheme: dark; }
+:root { --shader-bg: 5 5 5; --shader-line: 168 85 247; --shader-accent: 192 132 252; --card-shadow: rgba(0, 0, 0, 0.9); color-scheme: dark; }
 
 :root[data-theme="light"] {
   color-scheme: light;
@@ -115,6 +115,17 @@ body {
   --color-zinc-900: oklch(95% 0.001 286.375);
   --color-zinc-950: oklch(98.5% 0 0);
   --shader-bg: 246 245 242; --shader-line: 124 58 237; --shader-accent: 147 51 234;
+  --card-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* Light no celular: texto passa por cima da grade, então ela fica mais suave
+   e os destaques roxos escurecem para manter contraste no fundo claro */
+@media (max-width: 1023px) {
+  :root[data-theme="light"] {
+    --shader-line: 196 181 253; --shader-accent: 167 139 250;
+    --color-purple-300: oklch(55.8% 0.288 302.321);
+    --color-purple-400: oklch(49.6% 0.265 301.924);
+  }
 }
 
 :root[data-theme="mono"] {
