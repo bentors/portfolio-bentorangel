@@ -95,7 +95,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <div
               key={`mobile-${project.id}`}
-              className="sticky w-full max-w-sm mx-auto rounded-[2rem] border-t border-zinc-800 bg-surface shadow-[0_-15px_40px_-15px_rgba(0,0,0,0.9)] overflow-hidden flex flex-col"
+              className="sticky w-full max-w-sm mx-auto rounded-[2rem] border-t border-zinc-800 bg-surface shadow-[0_-15px_40px_-15px_var(--card-shadow)] overflow-hidden flex flex-col"
               style={{
                 top: `calc(15vh + ${index * 24}px)`,
                 marginBottom: index === projects.length - 1 ? '0' : '40vh',
