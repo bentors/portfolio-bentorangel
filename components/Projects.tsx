@@ -15,40 +15,42 @@ const projects = [
     id: "01",
     title: "Street Stars",
     subtitle: "E-commerce Full Stack · Tech Lead",
-    description: "E-commerce da marca de streetwear que cofundei, onde atuo como líder técnico. Conduzi uma auditoria completa de segurança (autenticação HMAC de webhooks, validação de preço server-side, Firebase custom claims, uploads assinados, rate limiting) e de UX/SEO/conversão, atacando as fricções do checkout.",
+    description: "Construí do zero o e-commerce da marca de streetwear que cofundei e lidero a parte técnica. Fiz a auditoria de segurança (webhooks autenticados com HMAC, preço validado no servidor, Firebase custom claims, uploads assinados via Cloudinary, rate limiting com Upstash) e a de UX/SEO/conversão, atacando os atritos do checkout.",
     tech: ["Next.js", "TypeScript", "Firebase", "Tailwind", "Zod"],
     github: "https://github.com/bentors/site-streetstars",
     link: "https://streetstars.vercel.app/",
+    linkLabel: "Acessar",
     image: "/projects/streetstars.webp",
   },
   {
     id: "02",
     title: "Aurum Finance",
     subtitle: "API REST & Frontend",
-    description: "Plataforma de finanças pessoais com API em Java e Spring Boot: autenticação JWT com isolamento de dados por usuário, rate limiting, cache com Caffeine, soft delete e optimistic locking. Consumida por um frontend próprio em React e TypeScript.",
+    description: "API REST de finanças pessoais em Java e Spring Boot, com JWT e dados isolados por usuário. Rate limiting, cache com Caffeine, soft delete e optimistic locking para editar sem perder dados. Consumida por um frontend próprio em React e TypeScript.",
     tech: ["Java", "Spring Boot", "PostgreSQL", "React", "TypeScript"],
     github: "https://github.com/bentors/aurum-finance-api",
     link: "https://aurum-finance-api.onrender.com/swagger-ui/index.html",
+    linkLabel: "Ver API",
     image: "/projects/aurum.webp",
   },
   {
     id: "03",
     title: "AlertaSP",
     subtitle: "Backend, IoT & Infraestrutura",
-    description: "Plataforma de prevenção de alagamentos em São Paulo que cruza sensores ESP32, um modelo de Machine Learning e ocorrências para alertar o cidadão nos seus trajetos. Construí a API em Spring Boot e o provisionamento automatizado da VM Linux (nginx, firewall, systemd, monitoramento).",
+    description: "Prevenção de enchentes em São Paulo: sensores ESP32, um modelo de machine learning e relatos de cidadãos geram alertas nas rotas de cada usuário. Construí a API em Spring Boot, o modelo de ML e o provisionamento automatizado da VM Linux (nginx, firewall, systemd, monitoramento).",
     tech: ["Java", "Spring Boot", "PostgreSQL", "Linux", "Shell Script"],
     github: "https://github.com/bentors/alertasp-api-soa",
     link: "https://youtu.be/FV1CGLFQnpA",
+    linkLabel: "Ver demo",
     image: "/projects/alertasp.webp",
   },
   {
     id: "04",
     title: "Ford Vision",
     subtitle: "Machine Learning · Desafio Ford & FIAP",
-    description: "Solução de IA para retenção de clientes no pós-venda da Ford, com dados reais de 175 mil veículos. Segmentação com K-Means em perfis de cliente, classificação supervisionada para scoring da base ativa e geração de leads proativos por concessionária.",
+    description: "Random Forest com 83,2% de acurácia sobre 600 mil+ registros de 175 mil veículos, no desafio da FIAP com a Ford para retenção no pós-venda. Criei o motor de IA: segmentação com K-Means, tratamento de data leakage e leads proativos por concessionária servidos em FastAPI.",
     tech: ["Python", "scikit-learn", "Pandas", "FastAPI"],
     github: "https://github.com/bentors/Ford-Vision---IA-ML",
-    link: "https://github.com/bentors/Ford-Vision---IA-ML",
     image: "/projects/fordvision.webp",
   },
 ];
@@ -76,14 +78,14 @@ export default function Projects() {
           <div>
             <div className="flex items-center gap-4 mb-4">
               <div className="h-[1px] w-12 bg-purple-500" />
-              <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Cases de Sucesso</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-purple-400">Projetos</span>
             </div>
             <h2 className="text-5xl font-black text-white sm:text-7xl tracking-tighter">
               <RevealText text="Trabalhos" /><span className="text-zinc-600">.</span>
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
-            Uma seleção de projetos focados em performance, escalabilidade e arquitetura limpa.
+            Uma seleção curta do que construí, cada projeto com a arquitetura por trás.
           </p>
         </motion.div>
 
@@ -123,15 +125,17 @@ export default function Projects() {
                 </p>
 
                 <div className="mt-2 flex items-center gap-3">
-                  <a 
-                    href={project.link} 
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-bold text-black transition-all active:scale-95"
-                  >
-                    Acessar
-                    <ArrowUpRight size={14} />
-                  </a>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex flex-1 items-center justify-center gap-2 rounded-full bg-white px-4 py-3 text-xs font-bold text-black transition-all active:scale-95"
+                    >
+                      {project.linkLabel}
+                      <ArrowUpRight size={14} />
+                    </a>
+                  )}
                   <a 
                     href={project.github} 
                     target="_blank"
@@ -187,15 +191,17 @@ export default function Projects() {
                   </div>
 
                   <div className="mt-4 flex items-center gap-4">
-                    <a 
-                      href={project.link} 
-                      target="_blank"
-                      rel="noreferrer"
-                      className="group/btn flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition-all hover:bg-purple-500 hover:text-white hover:scale-105"
-                    >
-                      Acessar
-                      <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
-                    </a>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="group/btn flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-black transition-all hover:bg-purple-500 hover:text-white hover:scale-105"
+                      >
+                        {project.linkLabel}
+                        <ArrowUpRight size={16} className="transition-transform group-hover/btn:-translate-y-0.5 group-hover/btn:translate-x-0.5" />
+                      </a>
+                    )}
                     <a 
                       href={project.github} 
                       target="_blank"
@@ -203,7 +209,7 @@ export default function Projects() {
                       className="group/btn flex items-center gap-2 rounded-full border border-zinc-700 bg-transparent px-6 py-3 text-sm font-bold text-zinc-300 transition-all hover:border-zinc-300 hover:text-white hover:scale-105"
                     >
                       <Github size={16} />
-                      Repositório
+                      Código
                     </a>
                   </div>
                 </div>

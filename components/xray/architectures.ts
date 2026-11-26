@@ -62,10 +62,10 @@ export const architectures: Partial<Record<string, Arch>> = {
   "04": {
     title: "Ford Vision",
     nodes: [
-      { id: "data", label: "Dados Ford", sub: "175 mil veículos", x: 200, y: 50 },
+      { id: "data", label: "Dados Ford", sub: "600 mil+ registros · 175 mil veículos", x: 200, y: 50 },
       { id: "pre", label: "Pré-processamento", sub: "winsorização · escala", x: 200, y: 130 },
       { id: "km", label: "K-Means", sub: "3 perfis", x: 200, y: 210 },
-      { id: "clf", label: "Classificador", sub: "Pipeline sklearn", x: 200, y: 290 },
+      { id: "clf", label: "Random Forest", sub: "83,2% de acurácia", x: 200, y: 290 },
       { id: "fast", label: "FastAPI", x: 200, y: 370 },
       { id: "leads", label: "Leads", sub: "por concessionária", x: 200, y: 450 },
     ],
