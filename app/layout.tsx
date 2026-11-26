@@ -11,6 +11,7 @@ import ThemeControls from "../components/ThemeControls";
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-site" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://bentorangel.vercel.app"),
   title: "Bento Rangel | Software Engineer",
   description: "Dev backend e full stack em cybersecurity na Neotel. Python/Django, Java/Spring, React/TypeScript. Engenharia de Software na FIAP (2027) e cofundador da Street Stars.",
   keywords: ["Software Engineer", "Engenheiro de Software", "Backend", "Full Stack", "Cybersecurity", "Java", "Spring Boot", "Python", "Django", "TypeScript", "FIAP", "Street Stars"],
