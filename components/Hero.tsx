@@ -99,7 +99,7 @@ export default function Hero() {
             Software Engineer.
           </h2>
           <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
-            Do backend aos dados: construo sistemas que escalam e entregam resultados. <span className="text-zinc-200">Java</span>, <span className="text-zinc-200">Python</span>, <span className="text-zinc-200">TypeScript</span> e uma paixão por resolver problemas complexos através de arquiteturas limpas e decisões orientadas a dados. Dev full stack na Neotel e Eng. de Software na FIAP.
+            Dev backend e full stack em produtos de cybersecurity na <span className="text-zinc-200">Neotel</span>: <span className="text-zinc-200">Python/Django</span>, <span className="text-zinc-200">React/TypeScript</span> e <span className="text-zinc-200">Java/Spring</span>. Antes, 3 anos na DHL Express, da operação ao time de dados. Cofundador e tech lead da Street Stars. Engenharia de Software na FIAP (2027).
           </p>
         </motion.div>
       </div>
@@ -137,7 +137,7 @@ export default function Hero() {
             onClick={() => document.getElementById("projetos")?.scrollIntoView({ behavior: "smooth" })}
             className="transition-colors hover:text-purple-400 cursor-pointer"
           >
-            02. Cases
+            02. Projetos
           </button>
         </div>
       </motion.div>

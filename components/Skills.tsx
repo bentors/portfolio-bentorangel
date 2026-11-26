@@ -5,7 +5,7 @@ import XRay from "@/components/xray/XRay";
 import { motion } from "framer-motion";
 import {
   Coffee, Leaf, Server, Database, Box, Flame, DatabaseZap, Sheet, BrainCircuit,
-  Snowflake, BarChart3, FileCode2, Triangle, Sparkles, Terminal, Container,
+  Snowflake, BarChart3, FileCode2, Triangle, Sparkles, Terminal, Container, Cloud, Workflow,
 } from "lucide-react";
 
 const skillCategories = [
@@ -14,7 +14,7 @@ const skillCategories = [
     items: [
       {
         name: "Java",
-        usedIn: ["Aurum", "AlertaSP", "SmartInventory"],
+        usedIn: ["Aurum", "AlertaSP", "Smart Inventory"],
         color: "hover:border-[#E76F00]/50 hover:bg-[#E76F00]/10 text-[#E76F00]",
         icon: <Coffee size={32} strokeWidth={1.5} />,
       },
@@ -32,14 +32,14 @@ const skillCategories = [
       },
       {
         name: "PostgreSQL",
-        usedIn: ["Aurum", "AlertaSP", "Neotel"],
+        usedIn: ["Neotel", "Aurum", "AlertaSP"],
         color: "hover:border-[#336791]/50 hover:bg-[#336791]/10 text-[#336791]",
         icon: <Database size={32} strokeWidth={1.5} />,
       },
       {
-        name: "MongoDB",
-        usedIn: ["Estudos", "Alura"],
-        color: "hover:border-[#47A248]/50 hover:bg-[#47A248]/10 text-[#47A248]",
+        name: "Celery",
+        usedIn: ["Neotel"],
+        color: "hover:border-[#37814A]/50 hover:bg-[#37814A]/10 text-[#37814A]",
         icon: <Box size={32} strokeWidth={1.5} />,
       },
       {
@@ -55,7 +55,7 @@ const skillCategories = [
     items: [
       {
         name: "Python",
-        usedIn: ["Ford Vision", "DHL", "Neotel"],
+        usedIn: ["Neotel", "DHL", "Ford Vision"],
         color: "hover:border-[#FFD43B]/50 hover:bg-[#FFD43B]/10 text-[#FFD43B]",
         icon: (
           <svg viewBox="0 0 24 24" width="32" height="32" fill="currentColor">
@@ -71,13 +71,13 @@ const skillCategories = [
       },
       {
         name: "Pandas",
-        usedIn: ["Ford Vision", "DHL"],
+        usedIn: ["Ford Vision", "REORBITA", "DHL"],
         color: "hover:border-[#150458]/80 hover:bg-[#150458]/30 text-[#4053D6]",
         icon: <Sheet size={32} strokeWidth={1.5} />,
       },
       {
         name: "scikit-learn",
-        usedIn: ["Ford Vision", "AlertaSP"],
+        usedIn: ["Ford Vision", "AlertaSP", "REORBITA"],
         color: "hover:border-[#F7931E]/50 hover:bg-[#F7931E]/10 text-[#F7931E]",
         icon: <BrainCircuit size={32} strokeWidth={1.5} />,
       },
@@ -100,7 +100,7 @@ const skillCategories = [
     items: [
       {
         name: "React",
-        usedIn: ["Aurum", "Neotel"],
+        usedIn: ["Neotel", "Aurum"],
         color: "hover:border-[#61DAFB]/50 hover:bg-[#61DAFB]/10 text-[#61DAFB]",
         icon: (
           <svg viewBox="-11.5 -10.23174 23 20.46348" width="32" height="32" fill="currentColor">
@@ -115,7 +115,7 @@ const skillCategories = [
       },
       {
         name: "TypeScript",
-        usedIn: ["Street Stars", "Aurum", "Neotel"],
+        usedIn: ["Neotel", "Street Stars", "Aurum"],
         color: "hover:border-[#3178C6]/50 hover:bg-[#3178C6]/10 text-[#3178C6]",
         icon: <FileCode2 size={32} strokeWidth={1.5} />,
       },
@@ -154,9 +154,21 @@ const skillCategories = [
       },
       {
         name: "Docker",
-        usedIn: ["SmartInventory"],
+        usedIn: ["Neotel", "Smart Inventory"],
         color: "hover:border-[#2496ED]/50 hover:bg-[#2496ED]/10 text-[#2496ED]",
         icon: <Container size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "AWS Bedrock",
+        usedIn: ["Neotel"],
+        color: "hover:border-[#FF9900]/50 hover:bg-[#FF9900]/10 text-[#FF9900]",
+        icon: <Cloud size={32} strokeWidth={1.5} />,
+      },
+      {
+        name: "GitHub Actions",
+        usedIn: ["Neotel"],
+        color: "hover:border-[#2088FF]/50 hover:bg-[#2088FF]/10 text-[#2088FF]",
+        icon: <Workflow size={32} strokeWidth={1.5} />,
       },
       {
         name: "Git",
@@ -194,7 +206,7 @@ export default function Skills() {
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
-            As ferramentas que uso no dia a dia para construir back-ends robustos, trabalhar dados e criar interfaces ágeis.
+            O que uso no dia a dia, e onde cada ferramenta já foi usada de verdade.
           </p>
         </motion.div>
 

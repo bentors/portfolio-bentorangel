@@ -62,7 +62,7 @@ export default function Contact() {
               <RevealText text="Vamos conversar" /><span className="text-purple-500">.</span>
             </h2>
             <p className="max-w-2xl text-zinc-400 font-medium text-base md:text-lg">
-              Aberto a oportunidades em engenharia de software e dados. Se você busca alguém que constrói sistemas sólidos, aprende rápido e entrega resultado, pode me chamar. Respondo mais rápido que o build do Java.
+              Aberto a vagas júnior em backend, segurança de aplicações e dados. Vaga, projeto ou só uma boa conversa sobre arquitetura: pode me chamar. Respondo mais rápido que o build do Java.
             </p>
           </div>
         </motion.div>

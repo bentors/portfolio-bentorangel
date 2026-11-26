@@ -28,7 +28,7 @@ export default function Footer() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60 motion-reduce:animate-none" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            todos os sistemas operacionais · build {process.env.NEXT_PUBLIC_BUILD_SHA} · deploy{" "}
+            todos os sistemas operando · build {process.env.NEXT_PUBLIC_BUILD_SHA} · deploy{" "}
             {new Date(process.env.NEXT_PUBLIC_BUILD_TIME!).toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}
           </p>
         </div>

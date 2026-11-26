@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Terminal, Layers, Target, Network, ArrowDown } from "lucide-react";
+import { Terminal, ShieldCheck, Target, Network, ArrowDown } from "lucide-react";
 
 export default function About() {
   return (
@@ -38,7 +38,7 @@ export default function About() {
               <Terminal className="mb-3 sm:mb-4 text-purple-400 w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.5} />
               <h3 className="mb-3 sm:mb-4 text-xl font-bold text-zinc-100 sm:text-3xl leading-tight">Da curiosidade ao código que impacta.</h3>
               <p className="text-zinc-400 leading-relaxed text-sm sm:text-lg font-medium">
-                Minha jornada na tecnologia não começou apenas com a tela do computador, mas no chão de fábrica operacional. Entendi cedo que sistemas não existem apenas para rodar, mas para resolver dores reais de negócios. Hoje sou estagiário de desenvolvimento full stack na <span className="text-zinc-200">Neotel</span>, curso Engenharia de Software na <span className="text-zinc-200">FIAP</span> e aplico essa mentalidade em cada entrega, seja arquitetando back-ends robustos ou estruturando pipelines de dados que otimizam horas de trabalho manual.
+                Construo software que aguenta produção e passa em auditoria. Hoje faço isso na <span className="text-zinc-200">Neotel</span>, em produtos de cybersecurity: Python e Django no backend, React e TypeScript no frontend, tudo em Linux. Nos primeiros 3 meses, foram mais de 140 PRs integrados em 4 produtos, incluindo a refatoração completa do produto principal da empresa. Em paralelo, curso Engenharia de Software na <span className="text-zinc-200">FIAP</span> com bolsa integral do ProUni.
               </p>
             </div>
           </motion.div>
@@ -52,11 +52,11 @@ export default function About() {
             // Mobile: Ocupa as 2 colunas / Desktop: Ocupa 3 colunas (fica na Linha 2)
             className="order-2 col-span-2 md:order-3 md:col-span-3 group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-zinc-800/50 bg-zinc-900/20 p-5 sm:p-8 transition-all hover:border-purple-500/30 hover:bg-zinc-900/40"
           >
-            <Layers className="mb-3 sm:mb-4 text-purple-400 w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.5} />
+            <ShieldCheck className="mb-3 sm:mb-4 text-purple-400 w-7 h-7 sm:w-8 sm:h-8" strokeWidth={1.5} />
             <div>
-              <h3 className="text-lg sm:text-2xl font-bold text-zinc-100 leading-tight">A mentalidade por trás do motor.</h3>
+              <h3 className="text-lg sm:text-2xl font-bold text-zinc-100 leading-tight">Segurança desde o primeiro commit.</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base font-medium text-zinc-400 leading-relaxed">
-                Não basta funcionar — precisa escalar e gerar valor. Minha abordagem: arquitetura sólida (Java/Spring Boot, Django) + dados inteligentes (Python/SQL). Fundações robustas para resultados sustentáveis.
+                Segurança não é etapa final nem tarefa de outro time. É decisão de arquitetura: preço se valida no servidor, webhook se autentica com HMAC e toda ação sensível deixa trilha de auditoria com quem fez, de onde e o que mudou.
               </p>
             </div>
           </motion.div>
@@ -74,7 +74,7 @@ export default function About() {
             <div>
               <h3 className="mb-2 sm:mb-3 text-lg sm:text-2xl font-bold text-zinc-100">Da operação aos dados.</h3>
               <p className="font-medium text-zinc-400 leading-relaxed text-sm sm:text-base">
-                Foram três anos na DHL Express: entrei como jovem aprendiz em operações e saí como estagiário de dados no Service Quality. Lá aprendi a investigar o problema antes de codar. Sistemas existem para resolver dores reais, não só para funcionar.
+                Foram três anos na DHL Express: entrei como jovem aprendiz no chão da operação e saí como estagiário de dados no Service Quality. Troquei uma rotina diária de Excel e macros por Snowflake e Python, de cerca de 2h para no máximo 30 min por dia. Lá aprendi a entender o problema antes de abrir o editor.
               </p>
             </div>
           </motion.div>
@@ -92,7 +92,7 @@ export default function About() {
             <div>
               <h3 className="text-lg sm:text-2xl font-bold text-zinc-100 leading-tight">Produto, arte e disciplina.</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base font-medium text-zinc-400 leading-relaxed">
-                Cofundador e tech lead da <strong className="text-zinc-200">Street Stars</strong>, onde vivo o negócio de ponta a ponta. Músico, praticante do jiu jitsu. Arte e esporte ensinam o que bootcamp não ensina: disciplina, criatividade e resiliência.
+                Cofundador e tech lead da <strong className="text-zinc-200">Street Stars</strong>, marca de streetwear cujo e-commerce construí do zero, onde vivo o negócio de ponta a ponta. Fora do código sou músico e treino jiu-jítsu, onde apanho com mais frequência do que o meu build quebra.
               </p>
             </div>
           </motion.div>
@@ -136,7 +136,7 @@ export default function About() {
               className="relative flex h-full min-h-[160px] md:min-h-0 flex-col justify-center items-center text-center overflow-hidden rounded-3xl border border-purple-500/20 bg-purple-600/5 p-4 sm:p-8 transition-all duration-300 md:group-hover:bg-purple-600/10 md:group-hover:border-purple-500/50 md:group-hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]"
             >
               <h3 className="mb-3 sm:mb-4 text-base sm:text-xl font-bold text-zinc-100 transition-colors md:group-hover:text-white leading-tight">
-                Explore<br className="block sm:hidden" /> trajetória
+                Ver<br className="block sm:hidden" /> trajetória
               </h3>
               
               <div className="flex h-10 w-10 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-full bg-purple-500/20 text-purple-400 transition-all duration-300 md:group-hover:bg-purple-500 md:group-hover:text-white md:group-hover:scale-110 md:group-hover:translate-y-2">
