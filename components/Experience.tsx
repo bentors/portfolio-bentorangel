@@ -13,8 +13,8 @@ const courses = [
     title: "Estagiário de Engenharia de Software",
     institution: "Neotel Segurança Digital",
     icon: <Briefcase size={24} />,
-    description: "Full stack nos produtos de cybersecurity da empresa. Refatorei sozinho o Neoreport, o microsserviço de relatórios que é o produto principal, e implementei trilhas de auditoria e integrações com Microsoft Graph. Mais de 140 PRs integrados em 4 produtos nos primeiros 3 meses.",
-    tech: ["Python", "Django", "React", "TypeScript", "PostgreSQL", "Celery", "AWS Bedrock"],
+    description: "Full stack nos produtos de cybersecurity. Refatorei sozinho o Neoreport, o produto principal da empresa, e implementei trilhas de auditoria. Mais de 140 PRs em 4 produtos nos primeiros 3 meses.",
+    tech: ["Python", "Django", "React", "TypeScript", "AWS Bedrock"],
   },
   {
     id: "02",
@@ -33,7 +33,7 @@ const courses = [
     title: "Estagiário em Dados · Service Quality",
     institution: "DHL Express",
     icon: <Database size={24} />,
-    description: "Evoluí o principal Power BI de Service Quality da DHL no Brasil, usado por todas as filiais. Troquei a atualização diária da base, feita em Excel e macros, por Snowflake e Python: de cerca de 2h para no máximo 30 min por dia. Entrei como Jovem Aprendiz em Operações (Jun/2023 — Mai/2024).",
+    description: "Evoluí o principal Power BI de Service Quality da DHL no Brasil, usado por todas as filiais, e troquei uma rotina diária de Excel e macros por Snowflake e Python: de ~2h para no máximo 30 min.",
     tech: ["Python", "SQL", "Snowflake", "Power BI", "Power Automate"],
   },
   {
@@ -43,7 +43,7 @@ const courses = [
     title: "Engenharia de Software",
     institution: "FIAP · Conclusão Dez/2027",
     icon: <GraduationCap size={24} />,
-    description: "Bolsa integral do ProUni pela nota do ENEM, com média acima de 8 em todos os semestres. Base em SOA, DDD com Java, cybersecurity, redes, sistemas operacionais e IA/ML. No REORBITA, previsão de tempestade solar com dados da NOAA, ficamos no top 15 entre todas as turmas.",
+    description: "Bolsa integral do ProUni, com média acima de 8 em todos os semestres. Base em SOA, DDD, cybersecurity e IA/ML. No REORBITA, previsão de tempestade solar, ficamos no top 15 entre todas as turmas.",
     tech: ["Java", "C#", "SOA", "DDD", "Machine Learning"],
   },
   {
@@ -53,7 +53,7 @@ const courses = [
     title: "Backend Java",
     institution: "Alura · 523h em andamento",
     icon: <Code2 size={24} />,
-    description: "Formação em backend com Java e Spring Boot: APIs REST, tratamento de erros, segurança e boas práticas de Clean Code e SOLID.",
+    description: "Formação de 523h em backend com Java e Spring Boot: APIs REST, tratamento de erros, segurança, Clean Code e SOLID. É a base dos meus projetos em Java, como a Aurum Finance e o AlertaSP.",
     tech: ["Java", "Spring Boot", "APIs", "OOP"],
   },
   {
