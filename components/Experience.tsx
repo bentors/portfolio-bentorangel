@@ -126,7 +126,7 @@ export default function Experience() {
               radius={170}
               description={`Ficha técnica: ${course.specs.join("; ")}`}
               demo={i === 0}
-              className="group relative flex flex-col justify-between w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-surface p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-surface-2"
+              className="group relative flex flex-col w-[85vw] sm:w-[400px] lg:w-[450px] shrink-0 snap-center rounded-[2rem] border border-zinc-800 bg-surface p-8 sm:p-10 transition-all duration-500 hover:border-purple-500/50 hover:bg-surface-2"
               blueprint={
                 <div className="flex h-full flex-col items-center justify-center gap-4 p-8 text-center sm:p-10">
                   <span className="bp-label">{`// FICHA TÉCNICA · ${course.id}`}</span>
@@ -153,7 +153,7 @@ export default function Experience() {
 
               {/* Centro do Card: Curso e Instituição */}
               <div className="mb-6">
-                <h3 className="text-2xl sm:text-3xl font-black text-zinc-100 tracking-tight mb-2 text-wrap">
+                <h3 className="text-2xl sm:text-3xl font-black text-zinc-100 tracking-tight mb-2 text-wrap min-h-[2lh]">
                   {course.title}
                 </h3>
                 <h4 className="text-sm font-bold text-purple-400 uppercase tracking-widest text-wrap">
@@ -161,12 +161,12 @@ export default function Experience() {
                 </h4>
               </div>
 
-              {/* Base do Card: Descrição e Techs */}
+              {/* Descrição logo abaixo do título; techs presas ao rodapé com altura de 2 linhas, para todos os cards alinharem */}
+              <p className="text-zinc-400 font-medium leading-relaxed mb-8 text-wrap">
+                {course.description}
+              </p>
               <div className="mt-auto">
-                <p className="text-zinc-400 font-medium leading-relaxed mb-8 text-wrap">
-                  {course.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex min-h-[4.25rem] flex-wrap content-start gap-2">
                   {course.tech.map((t) => (
                     <span key={t} className="rounded-full border border-zinc-800 bg-page px-4 py-1.5 text-xs font-semibold text-zinc-500 transition-colors group-hover:border-zinc-700 group-hover:text-zinc-300">
                       {t}
