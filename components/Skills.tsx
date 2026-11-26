@@ -206,7 +206,7 @@ export default function Skills() {
             </h2>
           </div>
           <p className="max-w-md text-zinc-400 font-medium text-lg">
-            O que uso no dia a dia, e onde cada ferramenta já foi usada de verdade.
+            Minhas ferramentas do dia a dia e onde cada uma já rodou de verdade.
           </p>
         </motion.div>
 

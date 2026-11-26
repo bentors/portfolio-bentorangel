@@ -8,7 +8,7 @@ import { GraduationCap, Code2, Database, Award, Briefcase, Rocket, MoveRight } f
 const courses = [
   {
     id: "01",
-    specs: ["Refactor do Neoreport em 6 fases · testes ~110 → 187", "IA generativa: AWS Bedrock · saída validada por schema", "Trilhas de auditoria · sync Planner via Microsoft Graph", "PDF assíncrono com Celery · 173 testes levados ao CI", "Docs: Fumadocs → Zensical · RAM 3,1 GB → 123 MB"],
+    specs: ["Refatoração do Neoreport em 6 fases · testes ~110 → 187", "IA generativa: AWS Bedrock · saída validada por schema", "Trilhas de auditoria · sync Planner via Microsoft Graph", "PDF assíncrono com Celery · 173 testes levados ao CI", "Docs: Fumadocs → Zensical · RAM 3,1 GB → 123 MB"],
     period: "Set/2026 — Atual",
     title: "Estagiário de Engenharia de Software",
     institution: "Neotel Segurança Digital",
@@ -58,10 +58,10 @@ const courses = [
   },
   {
     id: "06",
-    specs: ["DHL Express · CIS (Nov/2025)", "FIAP · Desenvolvimento Java Enterprise (2026)", "FIAP · Java Development · Big Data (2026)", "Anthropic · Claude Code in Action · MCP (2026)", "Alura · Lean Six Sigma (2026)"],
+    specs: ["DHL Express · CIS (Nov/2025)", "FIAP · Desenvolvimento Java Enterprise (2026)", "FIAP · Java Development (2026)", "FIAP · Big Data (2026)", "Anthropic · Claude Code in Action · MCP (2026)"],
     period: "Certificações",
     title: "Formação complementar",
-    institution: "DHL · FIAP · Anthropic · Alura",
+    institution: "DHL · FIAP · Anthropic",
     icon: <Award size={24} />,
     description: "Certified International Specialist (CIS), programa global de formação da DHL Express. Java Enterprise, Java Development e Big Data pela FIAP. Claude Code in Action e Model Context Protocol pela Anthropic.",
     tech: ["Java", "Big Data", "IA generativa", "Logística internacional"],

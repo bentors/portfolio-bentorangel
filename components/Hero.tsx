@@ -99,7 +99,7 @@ export default function Hero() {
             Software Engineer.
           </h2>
           <p className="text-base md:text-lg text-zinc-400 leading-relaxed font-medium">
-            Dev backend e full stack em produtos de cybersecurity na <span className="text-zinc-200">Neotel</span>: <span className="text-zinc-200">Python/Django</span>, <span className="text-zinc-200">React/TypeScript</span> e <span className="text-zinc-200">Java/Spring</span>. Antes, 3 anos na DHL Express, da operação ao time de dados. Cofundador e tech lead da Street Stars. Engenharia de Software na FIAP (2027).
+            Dev backend e full stack em produtos de cybersecurity na <span className="text-zinc-200">Neotel</span>, com <span className="text-zinc-200">Python/Django</span> e <span className="text-zinc-200">React/TypeScript</span>. Nos projetos, também <span className="text-zinc-200">Java/Spring</span>. Antes, 3 anos na DHL Express, da operação ao time de dados. Cofundador e tech lead da Street Stars. Engenharia de Software na FIAP (2027).
           </p>
         </motion.div>
       </div>

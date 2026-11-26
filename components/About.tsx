@@ -92,7 +92,7 @@ export default function About() {
             <div>
               <h3 className="text-lg sm:text-2xl font-bold text-zinc-100 leading-tight">Produto, arte e disciplina.</h3>
               <p className="mt-2 sm:mt-3 text-sm sm:text-base font-medium text-zinc-400 leading-relaxed">
-                Cofundador e tech lead da <strong className="text-zinc-200">Street Stars</strong>, marca de streetwear cujo e-commerce construí do zero, onde vivo o negócio de ponta a ponta. Fora do código sou músico e treino jiu-jítsu, onde apanho com mais frequência do que o meu build quebra.
+                Cofundador e tech lead da <strong className="text-zinc-200">Street Stars</strong>, marca de streetwear em que vivo o negócio de ponta a ponta e cujo e-commerce construí do zero. Fora do código sou músico e treino jiu-jítsu, onde apanho com mais frequência do que o meu build quebra.
               </p>
             </div>
           </motion.div>
